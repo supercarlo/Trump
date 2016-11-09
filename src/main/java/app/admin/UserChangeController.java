@@ -21,4 +21,9 @@ public class UserChangeController {
         Map<String, Object> model = new HashMap<>();
         return ViewUtil.render(request, model, Path.Template.USERCHANGE);
     };
+
+    public static Route userchangepost = (Request request, Response response) -> {
+        Map<String, Object> model = new HashMap<>();
+        return ViewUtil.render(request, model, Path.Template.USERCHANGE);
+    };
 }

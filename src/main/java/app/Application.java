@@ -34,6 +34,7 @@ public class Application {
         get(Path.Web.INDEX,          IndexController.serveIndexPage);
         get(Path.Web.CUSTOMERHOME,   CustomerHomeController.customerhome);
         get(Path.Web.ADMINHOME,      AdminHomeController.adminhome);
+        post(Path.Web.ADMINHOME,     AdminHomeController.adminhomepost);
         get(Path.Web.REGISTER,       RegisterController.register);
         post(Path.Web.REGISTER,      RegisterController.registerpost);
         get(Path.Web.USERS,          UsersController.users);
@@ -46,6 +47,7 @@ public class Application {
         get(Path.Web.DELETE,         UserDeleteController.delete);
         post(Path.Web.DELETE,        UserDeleteController.deletepost);
         get(Path.Web.USERCHANGE,     UserChangeController.userchange);
+        post(Path.Web.USERCHANGE,    UserChangeController.userchangepost);
         get("*",                     ViewUtil.notFound);
 
 

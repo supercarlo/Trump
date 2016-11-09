@@ -5,9 +5,12 @@
     #end
 <h2>$msg.get("INDEX_REGISTERED_USERS", $users.size())</h2>
 <ul>
-    #foreach($user in $users)
-        <a href="$WebPath.getUSERCHANGE()" id="$user">$user</a> <br>
-    #end
+    <form method="post" action="$WebPath.getUSERCHANGE()">
+        #foreach($user in $users)
+            <input type="submit" name="$user" value="$user"></input> <br>
+        #end
+    </form>
+
 </ul>
     #if($book)
     <h2>$msg.get("INDEX_BOOK_OF_THE_DAY_TEXT")</h2>

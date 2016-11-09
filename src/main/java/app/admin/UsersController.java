@@ -20,6 +20,7 @@ import java.util.Map;
 public class UsersController {
     public static Route users = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
+        System.out.println("Niet anders");
         model.put("users", selectUsers());
         return ViewUtil.render(request, model, Path.Template.USERS);
     };
@@ -27,9 +28,10 @@ public class UsersController {
     public static Route userspost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
         model.put("users", selectUsers());
-        String username = request.attributes().iterator().next();
-        request.session().attribute("modify", username);
-        return ViewUtil.render(request, model, Path.Template.USERS);
+//        String username = request.attributes().iterator().next();
+//        request.session().attribute("modify", username);
+        System.out.println("Anders");
+        return ViewUtil.render(request, model, Path.Template.USERCHANGE);
     };
 
     public static ArrayList<String> selectUsers() throws SQLException {
