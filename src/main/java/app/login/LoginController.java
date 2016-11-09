@@ -1,14 +1,17 @@
 package app.login;
 
-import app.DBC;
-import app.user.*;
-import app.util.*;
-import spark.*;
+import app.user.UserController;
+import app.util.Path;
+import app.util.ViewUtil;
+import spark.Request;
+import spark.Response;
+import spark.Route;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.*;
-import static app.util.RequestUtil.*;
+import java.util.HashMap;
+import java.util.Map;
+
+import static app.util.RequestUtil.removeSessionAttrLoggedOut;
+import static app.util.RequestUtil.removeSessionAttrLoginRedirect;
 
 public class LoginController {
     public static Route serveLoginPage = (Request request, Response response) -> {
@@ -21,13 +24,12 @@ public class LoginController {
     public static Route handleLoginPost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
         UserController userController = new UserController();
-
         String username = request.queryParams("username");
         String password = request.queryParams("password");
         int level = userController.login(username, password);
 
         if (level == 2) {
-//            User login
+//            app.login.User login
             request.session().attribute("currentUser", username);
             model.put("authenticationSucceeded", true);
             model.put("asUser", true);

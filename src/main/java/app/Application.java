@@ -35,10 +35,11 @@ public class Application {
         get(Path.Web.CUSTOMERHOME,   CustomerHomeController.customerhome);
         get(Path.Web.ADMINHOME,      AdminHomeController.adminhome);
         get(Path.Web.REGISTER,       RegisterController.register);
+        post(Path.Web.REGISTER,      RegisterController.registerpost);
         get(Path.Web.USERS,          UsersController.users);
         post(Path.Web.USERS,         UsersController.userspost);
-        get(Path.Web.BOOKS,          BookController.fetchAllBooks);
-        get(Path.Web.ONE_BOOK,       BookController.fetchOneBook);
+//        get(Path.Web.BOOKS,          BookController.fetchAllBooks);
+//        get(Path.Web.ONE_BOOK,       BookController.fetchOneBook);
         get(Path.Web.LOGIN,          LoginController.serveLoginPage);
         post(Path.Web.LOGIN,         LoginController.handleLoginPost);
         post(Path.Web.LOGOUT,        LoginController.handleLogoutPost);

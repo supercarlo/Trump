@@ -273,8 +273,11 @@
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4">
-                    <button value="Register" type="submit" name="login-submit" id="login-submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
-
+                    <form method="post" action="$WebPath.getREGISTER()">
+                        <input type="submit" name="register" value="submit">
+                    </form>
+##                    <a href="$WebPath.getRegister()" type="submit" name="login-submit" id="login-submit" class="btn btn-warning" >Send </a>
+##                    <input type="submit" value="$msg.get("REGISTER_LABEL_FIRSTNAME")">
                 </div>
             </div>
 

@@ -1,7 +1,6 @@
 package app.user;
 
 import app.DBC;
-import org.mindrot.jbcrypt.*;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -66,7 +65,7 @@ public class UserController {
 //        if (username.isEmpty() || password.isEmpty()) {
 //            return false;
 //        }
-//        User user = userDao.getUserByUsername(username);
+//        app.login.User user = userDao.getUserByUsername(username);
 //        if (user == null) {
 //            return false;
 //        }

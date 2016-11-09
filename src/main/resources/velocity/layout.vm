@@ -27,13 +27,18 @@
             </form>
         </ul>
         <ul id="menu">
+            <li><a href="$WebPath.getREGISTER()">Register</a></li>
             #if($authenticationSucceeded)
                 #if($asAdmin)
                     <li><a href="$WebPath.getUSERS()">Users</a></li>
                 #end
             #end
             <li><a href="$WebPath.getBOOKS()">$msg.get("COMMON_NAV_ALLBOOKS")</a></li>
+
+
             #if($currentUser)
+
+
                 <li>
                     <form method="post" action="$WebPath.getLOGOUT()">
                         <button id="logout">$msg.get("COMMON_NAV_LOGOUT")</button>

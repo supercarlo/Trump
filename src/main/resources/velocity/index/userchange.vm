@@ -2,6 +2,6 @@
 #@mainLayout()
     <form method="post" action="$getDELETE()">
         <input type="submit" name="delete" id="delete" value="Delete"></input>
-        <button id="update">Update User</button>
+        <button id="update">Update app.login.User</button>
     </form>
 #end
