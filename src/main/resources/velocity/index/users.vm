@@ -1,0 +1,23 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+    #if($deletesucces)
+    <p class="bad notification">Delete succesfull</p>
+    #end
+<h2>$msg.get("INDEX_REGISTERED_USERS", $users.size())</h2>
+<ul>
+    #foreach($user in $users)
+        <a href="$WebPath.getDELETE()">$user</a> <br>
+    #end
+</ul>
+    #if($book)
+    <h2>$msg.get("INDEX_BOOK_OF_THE_DAY_TEXT")</h2>
+    <div class="row row-2">
+        <div class="col">
+            <a href="$WebPath.getBOOKS()$book.getIsbn()">$msg.get("INDEX_BOOK_OF_THE_DAY_LINK", $book.getTitle(), $book.getAuthor())</a>
+        </div>
+        <div class="col">
+            <img src="$book.getLargeCover()" alt="$book.getTitle()">
+        </div>
+    </div>
+    #end
+#end
