@@ -1,0 +1,7 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+    <form method="post" action="">
+        <input type="submit" name="delete" id="delete", value="yes">Delete</input>
+        <button id="update">Update User</button>
+    </form>
+#end

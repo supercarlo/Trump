@@ -11,20 +11,26 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
-import static app.util.RequestUtil.getQueryUsername;
-
 /**
  * Created by carlo on 09-11-16.
  */
-public class DeleteUserController {
+public class UserDeleteController {
     public static Route delete = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
-
-        deleteCustomer("Kieter");
-//        deleteAdress(getQueryUsername(request));
+        request.attribute("delete", request.pathInfo());
         model.put("deletesucces", true);
+        return ViewUtil.render(request, model, Path.Template.INDEX);
+    };
 
-        return ViewUtil.render(request, model, Path.Template.ADMINHOME);
+    public static Route deletepost = (Request request, Response response) -> {
+        Map<String, Object> model = new HashMap<>();
+        request.attribute("delete", request.pathInfo());
+        if (request.queryParams().iterator().next() == "delete") {
+            deleteCustomer(request.session().attribute("modify"));
+//        deleteAdress(getQueryUsername(request));
+            model.put("deletesucces", true);
+        }
+        return ViewUtil.render(request, model, Path.Template.INDEX);
     };
 
     public static void deleteCustomer(String UsernameCustomer){
@@ -51,6 +57,5 @@ public class DeleteUserController {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
-
     }
 }

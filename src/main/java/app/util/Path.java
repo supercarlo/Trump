@@ -16,7 +16,8 @@ public class Path {
         @Getter public static final String ADMINHOME = "/adminhome/";
         @Getter public static final String REGISTER = "/register/";
         @Getter public static final String USERS = "/users/";
-        @Getter public static final String DELETE = "/delete/";
+        @Getter public static final String DELETE = "/index/";
+        @Getter public static final String USERCHANGE = "/userchange/";
     }
 
     public static class Template {
@@ -29,6 +30,7 @@ public class Path {
         public final static String ADMINHOME = "/velocity/index/adminhome.vm";
         public final static String REGISTER = "/velocity/index/register.vm";
         public final static String USERS = "/velocity/index/users.vm";
+        public final static String USERCHANGE = "/velocity/index/userchange.vm";
 
     }
 
