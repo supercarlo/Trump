@@ -1,11 +1,11 @@
 package app;
 
-import app.admin.DeleteUserController;
+import app.admin.UserChangeController;
+import app.admin.UserDeleteController;
 import app.admin.UsersController;
 import app.book.*;
 import app.index.*;
 import app.login.*;
-import app.user.*;
 import app.util.*;
 import static spark.Spark.*;
 import static spark.debug.DebugScreen.*;
@@ -36,12 +36,15 @@ public class Application {
         get(Path.Web.ADMINHOME,      AdminHomeController.adminhome);
         get(Path.Web.REGISTER,       RegisterController.register);
         get(Path.Web.USERS,          UsersController.users);
+        post(Path.Web.USERS,         UsersController.userspost);
         get(Path.Web.BOOKS,          BookController.fetchAllBooks);
         get(Path.Web.ONE_BOOK,       BookController.fetchOneBook);
         get(Path.Web.LOGIN,          LoginController.serveLoginPage);
         post(Path.Web.LOGIN,         LoginController.handleLoginPost);
         post(Path.Web.LOGOUT,        LoginController.handleLogoutPost);
-        get(Path.Web.DELETE,         DeleteUserController.delete);
+        get(Path.Web.DELETE,         UserDeleteController.delete);
+        post(Path.Web.DELETE,        UserDeleteController.deletepost);
+        get(Path.Web.USERCHANGE,     UserChangeController.userchange);
         get("*",                     ViewUtil.notFound);
 
 

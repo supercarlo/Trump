@@ -21,21 +21,23 @@ public class LoginController {
     public static Route handleLoginPost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
         UserController userController = new UserController();
-        int level = userController.login(getQueryUsername(request), getQueryPassword(request));
+        String username = request.queryParams("username");
+        String password = request.queryParams("password");
+        int level = userController.login(username, password);
 
         if (level == 2) {
 //            User login
-            request.session().attribute("currentUser", getQueryUsername(request));
+            request.session().attribute("currentUser", username);
             model.put("authenticationSucceeded", true);
             model.put("asUser", true);
-            model.put("username", getQueryUsername(request));
+            model.put("username", username);
             response.redirect(Path.Web.CUSTOMERHOME);
         } else if (level == 3) {
 //            Admin login
-            request.session().attribute("currentUser", getQueryUsername(request));
+            request.session().attribute("currentUser", username);
             model.put("asAdmin", true);
             model.put("authenticationSucceeded", true);
-            model.put("username", getQueryUsername(request));
+            model.put("username", username);
             response.redirect(Path.Web.ADMINHOME);
         } else {
             model.put("authenticationFailed", true);
@@ -58,7 +60,7 @@ public class LoginController {
     public static Route handleLogoutPost = (Request request, Response response) -> {
         request.session().removeAttribute("currentUser");
         request.session().attribute("loggedOut", true);
-        response.redirect(Path.Web.LOGIN);
+        response.redirect(Path.Web.INDEX);
         return null;
     };
 

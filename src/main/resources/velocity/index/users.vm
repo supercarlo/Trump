@@ -6,7 +6,7 @@
 <h2>$msg.get("INDEX_REGISTERED_USERS", $users.size())</h2>
 <ul>
     #foreach($user in $users)
-        <a href="$WebPath.getDELETE()">$user</a> <br>
+        <a href="$WebPath.getUSERCHANGE()" id="$user">$user</a> <br>
     #end
 </ul>
     #if($book)
