@@ -21,6 +21,7 @@ public class LoginController {
     public static Route handleLoginPost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
         UserController userController = new UserController();
+
         String username = request.queryParams("username");
         String password = request.queryParams("password");
         int level = userController.login(username, password);
