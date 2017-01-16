@@ -31,9 +31,11 @@
             #if($authenticationSucceeded)
                 #if($asAdmin)
                     <li><a href="$WebPath.getUSERS()">Users</a></li>
+                    #else
+                        <li><a href="$WebPath.getPRODUCTS()">Products</a></li>
                 #end
             #end
-            <li><a href="$WebPath.getBOOKS()">$msg.get("COMMON_NAV_ALLBOOKS")</a></li>
+            <li><a href="$WebPath.getPRODUCTS()">Products</a></li>
 
 
             #if($currentUser)

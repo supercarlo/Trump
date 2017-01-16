@@ -19,7 +19,6 @@ public class AdminHomeController {
     };
 
 
-
     public static Route adminhomepost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
         return ViewUtil.render(request, model, Path.Template.ADMINHOME);

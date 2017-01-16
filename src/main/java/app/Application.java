@@ -3,12 +3,15 @@ package app;
 import app.admin.UserChangeController;
 import app.admin.UserDeleteController;
 import app.admin.UsersController;
-import app.book.*;
-import app.index.*;
+import app.book.BookDao;
+import app.book.Panda1;
 import app.login.*;
-import app.util.*;
+import app.util.Filters;
+import app.util.Path;
+import app.util.ViewUtil;
+
 import static spark.Spark.*;
-import static spark.debug.DebugScreen.*;
+import static spark.debug.DebugScreen.enableDebugScreen;
 
 public class Application {
 
@@ -31,7 +34,7 @@ public class Application {
         before("*",                  Filters.handleLocaleChange);
 
         // Set up routes
-        get(Path.Web.INDEX,          IndexController.serveIndexPage);
+//        get(Path.Web.INDEX,          IndexController.serveIndexPage);
         get(Path.Web.CUSTOMERHOME,   CustomerHomeController.customerhome);
         get(Path.Web.ADMINHOME,      AdminHomeController.adminhome);
         post(Path.Web.ADMINHOME,     AdminHomeController.adminhomepost);
@@ -46,6 +49,8 @@ public class Application {
         post(Path.Web.DELETE,        UserDeleteController.deletepost);
         get(Path.Web.USERCHANGE,     UserChangeController.userchange);
         post(Path.Web.USERCHANGE,    UserChangeController.userchangepost);
+        get(Path.Web.PRODUCTS,       ProductController.products);
+        get(Path.Web.PANDA1,        Panda1.panda1);
         get("*",                     ViewUtil.notFound);
 
 

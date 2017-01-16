@@ -35,7 +35,7 @@ public class LoginController {
             model.put("authenticationSucceeded", true);
             model.put("asUser", true);
             model.put("username", username);
-            response.redirect(Path.Web.CUSTOMERHOME);
+            response.redirect(Path.Web.PRODUCTS);
         } else if (level == 3) {
 //            Admin login
             request.session().attribute("currentUser", username);
@@ -64,7 +64,7 @@ public class LoginController {
     public static Route handleLogoutPost = (Request request, Response response) -> {
         request.session().removeAttribute("currentUser");
         request.session().attribute("loggedOut", true);
-        response.redirect(Path.Web.INDEX);
+        response.redirect(Path.Web.LOGIN);
         return null;
     };
 

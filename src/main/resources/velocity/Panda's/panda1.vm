@@ -1,0 +1,28 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<body>
+
+
+
+<div class="col-md-3 col-sm-6 hero-feature">
+    <div class="thumbnail">
+        <img src="/img/panda1.png" alt="">
+        <div class="caption">
+            <h3>Panda 1</h3>
+            <p>Are you sure you want to buy this panda?</p>
+            <form href="$WebPath.getPANDA1()">
+                <input type="submit" name="panda1" value="Yes I do!">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
+#end

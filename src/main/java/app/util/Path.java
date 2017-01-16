@@ -18,6 +18,8 @@ public class Path {
         @Getter public static final String USERS = "/users/";
         @Getter public static final String DELETE = "/index/";
         @Getter public static final String USERCHANGE = "/userchange/";
+        @Getter public static final String PRODUCTS = "/products/";
+        @Getter public static final String PANDA1 = "/panda1/";
     }
 
     public static class Template {
@@ -31,6 +33,8 @@ public class Path {
         public final static String REGISTER = "/velocity/index/register.vm";
         public final static String USERS = "/velocity/index/users.vm";
         public final static String USERCHANGE = "/velocity/index/userchange.vm";
+        public final static String PRODUCTS = "/velocity/book/products.vm";
+        public final static String PANDA1 = "/velocity/panda's/panda1.vm";
 
     }
 
