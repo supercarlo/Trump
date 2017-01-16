@@ -39,8 +39,6 @@ public class Application {
         post(Path.Web.REGISTER,      RegisterController.registerpost);
         get(Path.Web.USERS,          UsersController.users);
         post(Path.Web.USERS,         UsersController.userspost);
-//        get(Path.Web.BOOKS,          BookController.fetchAllBooks);
-//        get(Path.Web.ONE_BOOK,       BookController.fetchOneBook);
         get(Path.Web.LOGIN,          LoginController.serveLoginPage);
         post(Path.Web.LOGIN,         LoginController.handleLoginPost);
         post(Path.Web.LOGOUT,        LoginController.handleLogoutPost);
