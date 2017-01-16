@@ -28,6 +28,7 @@ public class LoginController {
         String password = request.queryParams("password");
         int level = userController.login(username, password);
 
+
         if (level == 2) {
 //            app.login.User login
             request.session().attribute("currentUser", username);
