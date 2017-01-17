@@ -1,4 +1,4 @@
-package app.login;
+package app.product;
 
 import app.util.Path;
 import app.util.ViewUtil;

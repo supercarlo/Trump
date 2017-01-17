@@ -6,6 +6,7 @@ import app.admin.UsersController;
 import app.book.BookDao;
 import app.book.Panda1;
 import app.login.*;
+import app.product.ProductController;
 import app.util.Filters;
 import app.util.Path;
 import app.util.ViewUtil;
