@@ -3,7 +3,6 @@ package app;
 import app.admin.UserChangeController;
 import app.admin.UserDeleteController;
 import app.admin.UsersController;
-import app.book.BookDao;
 import app.book.Panda1;
 import app.login.*;
 import app.product.ProductController;
@@ -17,12 +16,11 @@ import static spark.debug.DebugScreen.enableDebugScreen;
 public class Application {
 
     // Declare dependencies
-    public static BookDao bookDao;
+
 
     public static void main(String[] args) {
 
         // Instantiate your dependencies
-        bookDao = new BookDao();
 
         // Configure Spark
         port(4567);
