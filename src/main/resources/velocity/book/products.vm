@@ -2,43 +2,63 @@
 #@mainLayout()
 <body>
 
+<script type="text/javascript">
+    function addTable() {
+        var myTableDiv = document.getElementById("html_table")
+        var table = document.createElement('TABLE')
+        var tableBody = document.createElement('TBODY')
+        var tr = document.createElement('TR');
 
+        table.appendChild(tableBody);
 
-<div class="col-md-3 col-sm-6 hero-feature">
-    <div class="thumbnail">
-        <img src="/img/panda1.png" height="500px" width="740px">
-        <div class="caption">
-            <h3>Panda 1</h3>
-            <p>This is the first panda that's available in our panda shop.</p>
+        var heading = new Array();
+        heading[0] = "Name"
+        heading[1] = "Image"
+        heading[2] = "Info"
 
-                <a href="$WebPath.getPANDA1()">Buy now!</a>
+        new Array listOfProductsNameArr = []
+        #foreach($name in $listOfProductsName)
+            listOfProductsNameArr.push($name);
+        #end
 
-            <p></p>
+        new Array listOfProductsImageArr = []
+        #foreach($image in $listOfProductsImage)
+            listOfProductsImageArr.push($image);
+        #end
 
+        new Array listOfProductsInfoArr = []
+        #foreach($info in $listOfProductsInfo)
+            listOfProductsInfoArr.push($info);
+        #end
 
-        </div>
-    </div>
-</div>
+        var data = new Array();
+        data[0] = listOfProductsNameArr
+        data[1] = listOfProductsImageArr
+        data[2] = listOfProductsInfoArr
 
+        tableBody.appendChild(tr);
+        for (i = 0; i < heading.length; i++) {
+            var th = document.createElement('TH')
+            th.width = '75';
+            th.appendChild(document.createTextNode(heading[i]));
+            tr.appendChild(th);
+        }
 
-<div class="col-md-3 col-sm-6 hero-feature">
-    <div class="thumbnail">
-        <img src="/img/panda2.png" height="500px" width="740px">
-        <div class="caption">
-            <h3>Panda 2</h3>
-            <p>This is the second panda that's available in our panda shop.</p>
+        for (i = 0; i < data.length; i++) {
 
-            <a href="$WebPath.getPANDA1()">Buy now!</a>
+            for (j = 0; j < data[i].length; j++) {
+                var td = document.createElement('TD')
+                td.appendChild(document.createTextNode(data[i][j]));
+                tr.appendChild(td)
+            }
+            tableBody.appendChild(tr);
+        }
 
-            <p></p>
-
-
-        </div>
-    </div>
-</div>
-
-
+        myTableDiv.appendChild(table)
+    }
+</script>
 
 </body>
 </html>
+
 #end

@@ -4,6 +4,7 @@ import app.admin.UserChangeController;
 import app.admin.UserDeleteController;
 import app.admin.UsersController;
 import app.book.Panda1;
+import app.index.IndexController;
 import app.login.*;
 import app.product.ProductController;
 import app.util.Filters;
@@ -16,12 +17,9 @@ import static spark.debug.DebugScreen.enableDebugScreen;
 public class Application {
 
     // Declare dependencies
-
-
     public static void main(String[] args) {
 
         // Instantiate your dependencies
-
         // Configure Spark
         port(4567);
         staticFiles.location("/public");
@@ -33,7 +31,7 @@ public class Application {
         before("*",                  Filters.handleLocaleChange);
 
         // Set up routes
-//        get(Path.Web.INDEX,          IndexController.serveIndexPage);
+        get(Path.Web.INDEX,          IndexController.serveIndexPage);
         get(Path.Web.CUSTOMERHOME,   CustomerHomeController.customerhome);
         get(Path.Web.ADMINHOME,      AdminHomeController.adminhome);
         post(Path.Web.ADMINHOME,     AdminHomeController.adminhomepost);
