@@ -1,13 +1,16 @@
 #* @implicitly included *#
 #* @vtlvariable name="WebPath" type="app.util.Path.Web" *#
 #* @vtlvariable name="msg" type="app.util.MessageBundle" *#
-#* @vtlvariable name="books" type="java.lang.Iterable<app.book.Book>" *#
-#* @vtlvariable name="book" type="app.book.Book" *#
-#* @vtlvariable name="users" type="java.lang.Iterable<app.user.User>" *#
 #* @vtlvariable name="currentUser" type="java.lang.String" *#
 #* @vtlvariable name="loggedOut" type="java.lang.String" *#
 #* @vtlvariable name="authenticationFailed" type="java.lang.String" *#
 #* @vtlvariable name="authenticationSucceeded" type="java.lang.String" *#
 #* @vtlvariable name="loginRedirect" type="java.lang.String" *#
 #* @vtlvariable name="listOfUsers" type="java.lang.Iterable" *#
+#* @vtlvariable name="listOfProductsID" type="java.lang.Iterable" *#
+#* @vtlvariable name="listOfProductsInfo" type="java.lang.Iterable" *#
+#* @vtlvariable name="listOfProductsImage" type="java.lang.Iterable" *#
+#* @vtlvariable name="listOfProductsName" type="java.lang.Iterable" *#
+#* @vtlvariable name="listOfProductsPrice" type="java.lang.Iterable" *#
+#* @vtlvariable name="listOfProductsCategory" type="java.lang.Iterable" *#
 #* @vtlvariable name="deletesucces" type="java.lang.String" *#

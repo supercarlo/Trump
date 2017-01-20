@@ -1,44 +1,25 @@
 #parse("/velocity/layout.vm")
 #@mainLayout()
 <body>
-
-
-
-<div class="col-md-3 col-sm-6 hero-feature">
-    <div class="thumbnail">
-        <img src="/img/panda1.png" height="500px" width="740px">
-        <div class="caption">
-            <h3>Panda 1</h3>
-            <p>This is the first panda that's available in our panda shop.</p>
-
-                <a href="$WebPath.getPANDA1()">Buy now!</a>
-
-            <p></p>
-
-
-        </div>
-    </div>
-</div>
-
-
-<div class="col-md-3 col-sm-6 hero-feature">
-    <div class="thumbnail">
-        <img src="/img/panda2.png" height="500px" width="740px">
-        <div class="caption">
-            <h3>Panda 2</h3>
-            <p>This is the second panda that's available in our panda shop.</p>
-
-            <a href="$WebPath.getPANDA1()">Buy now!</a>
-
-            <p></p>
-
-
-        </div>
-    </div>
-</div>
-
-
-
+<table border="1" style="width:100%" id="table">
+    <tbody>
+        <tr>
+            #foreach($names in $listOfProductsName)
+                <td>$names</td>
+            #end
+        </tr>
+        <tr>
+            #foreach($images in $listOfProductsImage)
+                <td><img src=$images alt="$images" style="width:100px; height=100px"></td>
+            #end
+        </tr>
+        <tr>
+            #foreach($info in $listOfProductsInfo)
+                <td>$info</td>
+            #end
+        </tr>
+    </tbody>
+</table>
 </body>
 </html>
 #end
