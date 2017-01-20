@@ -1,0 +1,60 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<p>Graphs home</p>
+
+
+    #set( $year = "2012")
+$url
+
+
+<head>
+
+
+    <select>
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+    </select>
+    <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script type="text/javascript">
+
+
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "theme2",//theme1
+                title:{
+                    text: "Account Creations in year "+ $year
+                },
+                animationEnabled: false,   // change to true
+                data: [
+                    {
+                        // Change type to "bar", "area", "spline", "pie",etc.
+                        type: "column",
+                        dataPoints: [
+                            { label: "Jan",  y: $graphmaker.CreationsPerYear($year, "01")  },
+                            { label: "Feb", y: $graphmaker.CreationsPerYear($year, "02")  },
+                            { label: "Mar", y: $graphmaker.CreationsPerYear($year, "03")  },
+                            { label: "Apr",  y: $graphmaker.CreationsPerYear($year, "04")  },
+                            { label: "May",  y: $graphmaker.CreationsPerYear($year, "05")  },
+                            { label: "Jun",  y: $graphmaker.CreationsPerYear($year, "06")  },
+                            { label: "Jul",  y: $graphmaker.CreationsPerYear($year, "07")  },
+                            { label: "Aug",  y: $graphmaker.CreationsPerYear($year, "08")  },
+                            { label: "Sep",  y: $graphmaker.CreationsPerYear($year, "09")  },
+                            { label: "Oct",  y: $graphmaker.CreationsPerYear($year, "10")  },
+                            { label: "Nov",  y: $graphmaker.CreationsPerYear($year, "11")  },
+                            { label: "Dec",  y: $graphmaker.CreationsPerYear($year, "12")  }
+
+                        ]
+                    }
+                ]
+            });
+            chart.render();
+        }
+    </script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</body>
+
+#end

@@ -14,6 +14,7 @@ public class Path {
         @Getter public static final String ONE_BOOK = "/books/:isbn/";
         @Getter public static final String CUSTOMERHOME = "/customerhome/";
         @Getter public static final String ADMINHOME = "/adminhome/";
+        @Getter public static final String GRAPHS = "/graphs/";
         @Getter public static final String REGISTER = "/register/";
         @Getter public static final String USERS = "/users/";
         @Getter public static final String DELETE = "/index/";
@@ -30,6 +31,7 @@ public class Path {
         public static final String NOT_FOUND = "/velocity/notFound.vm";
         public final static String CUSTOMERHOME = "/velocity/index/customerhome.vm";
         public final static String ADMINHOME = "/velocity/index/adminhome.vm";
+        public final static String GRAPHS = "/velocity/index/graphs.vm";
         public final static String REGISTER = "/velocity/index/register.vm";
         public final static String USERS = "/velocity/index/users.vm";
         public final static String USERCHANGE = "/velocity/index/userchange.vm";

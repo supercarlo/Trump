@@ -1,5 +1,6 @@
 package app;
 
+import app.admin.GraphsController;
 import app.admin.UserChangeController;
 import app.admin.UserDeleteController;
 import app.admin.UsersController;
@@ -37,11 +38,15 @@ public class Application {
         get(Path.Web.CUSTOMERHOME,   CustomerHomeController.customerhome);
         get(Path.Web.ADMINHOME,      AdminHomeController.adminhome);
         post(Path.Web.ADMINHOME,     AdminHomeController.adminhomepost);
+        get(Path.Web.GRAPHS,      GraphsController.graphs);
+        post(Path.Web.GRAPHS,     GraphsController.graphspost);
         get(Path.Web.REGISTER,       RegisterController.register);
         post(Path.Web.REGISTER,      RegisterController.registerpost);
         get(Path.Web.USERS,          UsersController.users);
         post(Path.Web.USERS,         UsersController.userspost);
         get(Path.Web.LOGIN,          LoginController.serveLoginPage);
+        post(Path.Web.LOGIN,         LoginController.handleLoginPost);
+        post(Path.Web.LOGOUT,        LoginController.handleLogoutPost);
         post(Path.Web.LOGIN,         LoginController.handleLoginPost);
         post(Path.Web.LOGOUT,        LoginController.handleLogoutPost);
         get(Path.Web.DELETE,         UserDeleteController.delete);
