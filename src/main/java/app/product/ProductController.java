@@ -55,38 +55,4 @@ public class ProductController {
         }
         return ViewUtil.render(request, model, Path.Template.PRODUCTS);
     };
-
-//    public static ArrayList<String> selectProducts() throws SQLException {
-//        DBC dbc = new DBC();
-//        Statement stat = dbc.Connection();
-//        ArrayList<String> listOfProductsData = null;
-//
-//        try {
-//            String query = ("select productid, info, image, nameproduct, price, categoryname from product");
-//            stat.getConnection().commit();
-//            ResultSet rs = stat.executeQuery(query);
-//            listOfProductsData = new ArrayList<String>();
-//            while (rs.next()) {
-//                String productid = rs.getString(0);
-//                String info = rs.getString(1);
-//                String image = rs.getString(2);
-//                String nameproduct = rs.getString(3);
-//                String price = rs.getString(4);
-//                String category = rs.getString(5);
-//
-//                listOfProductsData.add(productid);
-//                listOfProductsData.add(info);
-//                listOfProductsData.add(image);
-//                listOfProductsData.add(nameproduct);
-//                listOfProductsData.add(price);
-//                listOfProductsData.add(category);
-//            }
-//        } catch (Exception e) {
-//            System.out.println("Error");
-//        }
-//        return listOfProductsData;
-//
-//
-//    }
-
 }

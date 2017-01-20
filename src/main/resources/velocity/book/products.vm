@@ -1,64 +1,25 @@
 #parse("/velocity/layout.vm")
 #@mainLayout()
 <body>
-
-<script type="text/javascript">
-    function addTable() {
-        var myTableDiv = document.getElementById("html_table")
-        var table = document.createElement('TABLE')
-        var tableBody = document.createElement('TBODY')
-        var tr = document.createElement('TR');
-
-        table.appendChild(tableBody);
-
-        var heading = new Array();
-        heading[0] = "Name"
-        heading[1] = "Image"
-        heading[2] = "Info"
-
-        new Array listOfProductsNameArr = []
-        #foreach($name in $listOfProductsName)
-            listOfProductsNameArr.push($name);
-        #end
-
-        new Array listOfProductsImageArr = []
-        #foreach($image in $listOfProductsImage)
-            listOfProductsImageArr.push($image);
-        #end
-
-        new Array listOfProductsInfoArr = []
-        #foreach($info in $listOfProductsInfo)
-            listOfProductsInfoArr.push($info);
-        #end
-
-        var data = new Array();
-        data[0] = listOfProductsNameArr
-        data[1] = listOfProductsImageArr
-        data[2] = listOfProductsInfoArr
-
-        tableBody.appendChild(tr);
-        for (i = 0; i < heading.length; i++) {
-            var th = document.createElement('TH')
-            th.width = '75';
-            th.appendChild(document.createTextNode(heading[i]));
-            tr.appendChild(th);
-        }
-
-        for (i = 0; i < data.length; i++) {
-
-            for (j = 0; j < data[i].length; j++) {
-                var td = document.createElement('TD')
-                td.appendChild(document.createTextNode(data[i][j]));
-                tr.appendChild(td)
-            }
-            tableBody.appendChild(tr);
-        }
-
-        myTableDiv.appendChild(table)
-    }
-</script>
-
+<table border="1" style="width:100%" id="table">
+    <tbody>
+        <tr>
+            #foreach($names in $listOfProductsName)
+                <td>$names</td>
+            #end
+        </tr>
+        <tr>
+            #foreach($images in $listOfProductsImage)
+                <td><img src=$images alt="$images" style="width:100px; height=100px"></td>
+            #end
+        </tr>
+        <tr>
+            #foreach($info in $listOfProductsInfo)
+                <td>$info</td>
+            #end
+        </tr>
+    </tbody>
+</table>
 </body>
 </html>
-
 #end
