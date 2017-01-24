@@ -28,7 +28,7 @@
         </ul>
         <ul id="menu">
             <li><a href="$WebPath.getREGISTER()">Register</a></li>
-            <li><a href="$WebPath.getGRAPHS()">graphs</a></li>
+            <li><a href="$WebPath.getGRAPHS()?year=2012">graphs</a></li>
             #if($authenticationSucceeded)
                 #if($asAdmin)
                     <li><a href="$WebPath.getUSERS()">Users</a></li>

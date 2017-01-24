@@ -28,10 +28,13 @@ public class GraphsController {
 
             VelocityContext context = new VelocityContext();
             GRAPHS graphs = new GRAPHS();
+            request.url();
 
             model.put("graphmaker", graphs);
-            model.put("url", request.url());
+           //model.put("url", request.url());
+            model.put("request", request);
             Template template =  null;
+
 
 
             return ViewUtil.render(request, model, Path.Template.GRAPHS);
@@ -43,6 +46,7 @@ public class GraphsController {
             GRAPHS graphs = new GRAPHS();
             model.put("url", request.url());
             model.put("graphmaker", graphs);
+            model.put("request", request);
 
             return ViewUtil.render(request, model, Path.Template.GRAPHS);
         };
