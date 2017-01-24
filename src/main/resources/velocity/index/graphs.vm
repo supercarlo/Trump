@@ -158,7 +158,7 @@ window.onload=function(){
 
 
     <div id="chartContainer1" style="width: 100%; height:300px;display: inline-block;"></div><br>
-    <form>
+
     <form method="post" action="$WebPath.getGRAPHS()?year=1995">
         <input type="submit" value="1995"></input>
     </form> <form method="post" action="$WebPath.getGRAPHS()?year=1996">
@@ -206,11 +206,9 @@ window.onload=function(){
         <input type="submit" value="2016"></input>
     </form>
      <form method="post" action="$WebPath.getGRAPHS()?year=2017">
-    <input type="submit" value="2017"></input></form></form>
+    <input type="submit" value="2017"></input></form>
 
 
-    <input type="text" id="yeartext" name="yeartext" value="">
-    <button onclick="Changeyear()">Submit</button>
 
 
 
