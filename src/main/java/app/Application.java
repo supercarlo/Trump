@@ -4,10 +4,10 @@ import app.admin.GraphsController;
 import app.admin.UserChangeController;
 import app.admin.UserDeleteController;
 import app.admin.UsersController;
-import app.book.Panda1;
 import app.index.IndexController;
 import app.login.*;
 import app.product.ProductController;
+import app.product.ProductDao;
 import app.util.Filters;
 import app.util.Path;
 import app.util.ViewUtil;
@@ -18,9 +18,15 @@ import static spark.debug.DebugScreen.enableDebugScreen;
 public class Application {
 
     // Declare dependencies
+    public static ProductDao ProductDao;
+//    public static UserDao UserDao;
+
     public static void main(String[] args) {
 
         // Instantiate your dependencies
+        ProductDao = new ProductDao();
+//        UserDao = new UserDao();
+
         // Configure Spark
         port(4567);
         staticFiles.location("/public");
@@ -51,10 +57,9 @@ public class Application {
         post(Path.Web.DELETE,        UserDeleteController.deletepost);
         get(Path.Web.USERCHANGE,     UserChangeController.userchange);
         post(Path.Web.USERCHANGE,    UserChangeController.userchangepost);
-        get(Path.Web.PRODUCTS,       ProductController.products);
-        get(Path.Web.PANDA1,        Panda1.panda1);
+        get(Path.Web.PRODUCTS,       ProductController.getAllProducts);
+        get(Path.Web.PRODUCT,        ProductController.getOneProduct);
         get("*",                     ViewUtil.notFound);
-
 
         //Set up after-filters (called after each get/post)
         after("*",                   Filters.addGzipHeader);

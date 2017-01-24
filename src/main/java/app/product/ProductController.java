@@ -1,58 +1,45 @@
 package app.product;
 
-import app.DBC;
 import app.util.Path;
 import app.util.ViewUtil;
 import spark.Request;
 import spark.Response;
 import spark.Route;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static app.Application.ProductDao;
+import static app.util.JsonUtil.dataToJson;
+import static app.util.RequestUtil.*;
+
 /**
- * Created by Samuel on 16-01-17.
+ * Created by carlo on 23-01-17.
  */
 public class ProductController {
-    public static Route products = (Request request, Response response) -> {
-        Map<String, Object> model = new HashMap<>();
-
-        DBC dbc = new DBC();
-        Statement stat = dbc.Connection();
-
-        try {
-            String query = ("select productid, info, image, nameproduct, price, categoryname from product");
-            stat.getConnection().commit();
-            ResultSet rs = stat.executeQuery(query);
-            ArrayList<String> listOfProductsID = new ArrayList<String>();
-            ArrayList<String> listOfProductsInfo = new ArrayList<String>();
-            ArrayList<String> listOfProductsImage = new ArrayList<String>();
-            ArrayList<String> listOfProductsName = new ArrayList<String>();
-            ArrayList<String> listOfProductsPrice = new ArrayList<String>();
-            ArrayList<String> listOfProductsCategory = new ArrayList<String>();
-
-            while (rs.next()) {
-                listOfProductsID.add(rs.getString(1));
-                listOfProductsInfo.add(rs.getString(2));
-                listOfProductsImage.add(rs.getString(3));
-                listOfProductsName.add(rs.getString(4));
-                listOfProductsPrice.add(rs.getString(5));
-                listOfProductsCategory.add(rs.getString(6));
-
-                model.put("listOfProductsID", listOfProductsID);
-                model.put("listOfProductsInfo", listOfProductsInfo);
-                model.put("listOfProductsImage", listOfProductsImage);
-                model.put("listOfProductsName", listOfProductsName);
-                model.put("listOfProductsPrice", listOfProductsPrice);
-                model.put("listOfProductsCategory", listOfProductsCategory);
-            }
-        } catch (Exception e) {
-            System.out.println("Error");
+    public static Route getAllProducts = (Request request, Response response) -> {
+        ProductDao.addAllProducts();
+        if (clientAcceptsHtml(request)) {
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("products", ProductDao.getAllProducts());
+            return ViewUtil.render(request, model, Path.Template.PRODUCTS);
         }
-        return ViewUtil.render(request, model, Path.Template.PRODUCTS);
+        if (clientAcceptsJson(request)) {
+            return dataToJson(ProductDao.getAllProducts());
+        }
+        return ViewUtil.notAcceptable.handle(request, response);
+    };
+
+    public static Route getOneProduct = (Request request, Response response) -> {
+        if (clientAcceptsHtml(request)) {
+            HashMap<String, Object> model = new HashMap<>();
+            Products product = ProductDao.getProductByID(getParamID(request));
+            model.put("product", product);
+            return ViewUtil.render(request, model, Path.Template.PRODUCT);
+        }
+        if (clientAcceptsJson(request)) {
+            return dataToJson(ProductDao.getProductByID(getParamID(request)));
+        }
+        return ViewUtil.notAcceptable.handle(request, response);
     };
 }

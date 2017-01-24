@@ -10,8 +10,8 @@ public class Path {
         @Getter public static final String INDEX = "/index/";
         @Getter public static final String LOGIN = "/login/";
         @Getter public static final String LOGOUT = "/logout/";
-        @Getter public static final String BOOKS = "/books/";
-        @Getter public static final String ONE_BOOK = "/books/:isbn/";
+        @Getter public static final String PRODUCTS = "/products/";
+        @Getter public static final String PRODUCT = "/products/:ID/";
         @Getter public static final String CUSTOMERHOME = "/customerhome/";
         @Getter public static final String ADMINHOME = "/adminhome/";
         @Getter public static final String GRAPHS = "/graphs/";
@@ -19,15 +19,13 @@ public class Path {
         @Getter public static final String USERS = "/users/";
         @Getter public static final String DELETE = "/index/";
         @Getter public static final String USERCHANGE = "/userchange/";
-        @Getter public static final String PRODUCTS = "/products/";
-        @Getter public static final String PANDA1 = "/panda1/";
     }
 
     public static class Template {
         public final static String INDEX = "/velocity/index/index.vm";
         public final static String LOGIN = "/velocity/login/login.vm";
-        public final static String BOOKS_ALL = "/velocity/book/all.vm";
-        public static final String BOOKS_ONE = "/velocity/book/one.vm";
+        public final static String PRODUCTS = "/velocity/products/all.vm";
+        public static final String PRODUCT = "/velocity/products/one.vm";
         public static final String NOT_FOUND = "/velocity/notFound.vm";
         public final static String CUSTOMERHOME = "/velocity/index/customerhome.vm";
         public final static String ADMINHOME = "/velocity/index/adminhome.vm";
@@ -35,8 +33,6 @@ public class Path {
         public final static String REGISTER = "/velocity/index/register.vm";
         public final static String USERS = "/velocity/index/users.vm";
         public final static String USERCHANGE = "/velocity/index/userchange.vm";
-        public final static String PRODUCTS = "/velocity/book/products.vm";
-        public final static String PANDA1 = "/velocity/panda's/panda1.vm";
 
     }
 

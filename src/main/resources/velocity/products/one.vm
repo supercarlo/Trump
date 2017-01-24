@@ -1,0 +1,14 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+    #if($product)
+    <h1>$product.getName()</h1>
+    <h2>$product.getInfo()</h2>
+    <div class="book">
+        <div class="bookCover">
+            <img src="$product.getImage()" alt="$product.getName()" style="width: 500px; height: 200px">
+        </div>
+    </div>
+    #else
+    <h1>Product not found!</h1>
+    #end
+#end

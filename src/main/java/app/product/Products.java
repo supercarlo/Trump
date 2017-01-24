@@ -1,135 +1,37 @@
 package app.product;
 
-import app.DBC;
+import lombok.*;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
-
-/**
- * Created by onno on 17-1-2017.
- */
+@Value
 public class Products {
-    public boolean addProduct(String productID, String info, String image, String nameProduct, String price, String categoryName) {
-        boolean productAvailibility = true;
-        DBC databasePandaShop = new DBC();
-        Statement stat = databasePandaShop.Connection();
-        int countExistenceofProduct = 0;
-        try {
-            String query = ("select productid from Customer where productid = '" + productID + "' ;");
-            ResultSet rs = stat.executeQuery(query);
-            if (rs.next()) {
-                countExistenceofProduct++;
-            }
-            rs.close();
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
-        }
+    String ID;
+    String info;
+    String image;
+    String name;
+    String price;
+    String category;
 
-        if (countExistenceofProduct == 1) {
-            productAvailibility = false;
-        }
-
-        if (productAvailibility == true) {
-            try {
-                String query = ("insert into product(productid, info, image ,nameproduct, price, categoryname) values('" + productID + "', '" + info + "', '" + image + "', '" + nameProduct + "', '" + price + "', '" + categoryName + "');");
-                stat.executeUpdate(query);
-                stat.getConnection().commit();
-            } catch (Exception e) {
-                System.err.println(e.getClass().getName() + ": " + e.getMessage());
-                System.exit(0);
-
-            }
-        }
-        return productAvailibility;
+    public String getID() {
+        return ID;
     }
 
-    public void deleteProduct(String productId){
-        try {
-            DBC databasePandaShop = new DBC();
-            Statement stat = databasePandaShop.Connection();
-            String query = ("DELETE FROM product WHERE productid = '" + productId + "';");
-            stat.executeUpdate(query);
-            stat.getConnection().commit();
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
-        }
-
-    }
-    public void alterProduct(String columnName, String newData, String productId){
-
-        try {
-            DBC databasePandaShop = new DBC();
-            Statement stat = databasePandaShop.Connection();
-            String query = ("UPDATE product SET '"+ columnName + "' = '"+ newData +"' WHERE productid = '"+ productId +"';");
-            stat.executeUpdate(query);
-            stat.getConnection().commit();
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
-        }
+    public String getInfo() {
+        return info;
     }
 
-    public boolean addProductCategory(String categoryName, String description) {
-        boolean productcategoryAvailibility = true;
-        DBC databasePandaShop = new DBC();
-        Statement stat = databasePandaShop.Connection();
-        int countExistenceofProductCategory = 0;
-        try {
-            String query = ("select categoryname from Customer where categoryname = '" + categoryName + "' ;");
-            ResultSet rs = stat.executeQuery(query);
-            if (rs.next()) {
-                countExistenceofProductCategory++;
-            }
-            rs.close();
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
-        }
-
-        if (countExistenceofProductCategory == 1) {
-            productcategoryAvailibility = false;
-        }
-
-        if (productcategoryAvailibility == true) {
-            try {
-                String query = ("insert into productcategory(categoryname, description) values('" + categoryName + "', '" + description + "');");
-                stat.executeUpdate(query);
-                stat.getConnection().commit();
-            } catch (Exception e) {
-                System.err.println(e.getClass().getName() + ": " + e.getMessage());
-                System.exit(0);
-
-            }
-        }
-        return productcategoryAvailibility;
-    }
-    public void deleteProductCategory(String categoryName){
-        try {
-            DBC databasePandaShop = new DBC();
-            Statement stat = databasePandaShop.Connection();
-            String query = ("DELETE FROM productcategory WHERE categoryname = '" + categoryName + "';");
-            stat.executeUpdate(query);
-            stat.getConnection().commit();
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
-        }
-
-    }
-    public void alterProductcategory(String columnName, String newData, String categoryName){
-
-        try {
-            DBC databasePandaShop = new DBC();
-            Statement stat = databasePandaShop.Connection();
-            String query = ("UPDATE productcategory SET '"+ columnName + "' = '"+ newData +"' WHERE categoryname = '"+ categoryName +"';");
-            stat.executeUpdate(query);
-            stat.getConnection().commit();
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
-        }
+    public String getImage() {
+        return image;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public String getCategory() {
+        return category;
+    }
 }
