@@ -37,6 +37,7 @@ public class ProductQueries {
                 String query = ("insert into product(productid, info, image ,nameproduct, price, categoryname) values('" + productID + "', '" + info + "', '" + image + "', '" + nameProduct + "', '" + price + "', '" + categoryName + "');");
                 stat.executeUpdate(query);
                 stat.getConnection().commit();
+                stat.close();
             } catch (Exception e) {
                 System.err.println(e.getClass().getName() + ": " + e.getMessage());
                 System.exit(0);
@@ -51,6 +52,7 @@ public class ProductQueries {
             String query = ("DELETE FROM product WHERE productid = '" + productId + "';");
             stat.executeUpdate(query);
             stat.getConnection().commit();
+            stat.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
@@ -63,6 +65,7 @@ public class ProductQueries {
             String query = ("UPDATE product SET '"+ columnName + "' = '"+ newData +"' WHERE productid = '"+ productId +"';");
             stat.executeUpdate(query);
             stat.getConnection().commit();
+            stat.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
@@ -93,6 +96,7 @@ public class ProductQueries {
                 String query = ("insert into productcategory(categoryname, description) values('" + categoryName + "', '" + description + "');");
                 stat.executeUpdate(query);
                 stat.getConnection().commit();
+                stat.close();
             } catch (Exception e) {
                 System.err.println(e.getClass().getName() + ": " + e.getMessage());
                 System.exit(0);
@@ -106,6 +110,7 @@ public class ProductQueries {
             String query = ("DELETE FROM productcategory WHERE categoryname = '" + categoryName + "';");
             stat.executeUpdate(query);
             stat.getConnection().commit();
+            stat.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
@@ -120,6 +125,7 @@ public class ProductQueries {
             String query = ("UPDATE productcategory SET '"+ columnName + "' = '"+ newData +"' WHERE categoryname = '"+ categoryName +"';");
             stat.executeUpdate(query);
             stat.getConnection().commit();
+            stat.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
