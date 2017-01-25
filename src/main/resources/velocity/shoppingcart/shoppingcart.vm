@@ -1,0 +1,5 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+    <input type="submit" value="$msg.get("I want to purchase this")">
+</form>
+#end
