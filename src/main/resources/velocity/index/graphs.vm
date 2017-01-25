@@ -159,57 +159,18 @@ window.onload=function(){
 
     <div id="chartContainer1" style="width: 100%; height:300px;display: inline-block;"></div><br>
 
-    <form method="post" action="$WebPath.getGRAPHS()?year=1995">
-        <input type="submit" value="1995"></input>
-    </form> <form method="post" action="$WebPath.getGRAPHS()?year=1996">
-    <input type="submit" value="1996"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=1997">
-    <input type="submit" value="1997"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=1998">
-    <input type="submit" value="1998"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=1999">
-    <input type="submit" value="1999"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2000">
-    <input type="submit" value="2000"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2001">
-    <input type="submit" value="2001"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2002">
-    <input type="submit" value="2002"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2003">
-    <input type="submit" value="2003"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2004">
-    <input type="submit" value="2004"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2005">
-    <input type="submit" value="2005"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2006">
-    <input type="submit" value="2006"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2007">
-    <input type="submit" value="2007"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2008">
-    <input type="submit" value="2008"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2009">
-    <input type="submit" value="2009"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2010">
-    <input type="submit" value="2010"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2011">
-    <input type="submit" value="2011"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2012">
-    <input type="submit" value="2012"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2013">
-    <input type="submit" value="2013"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2014">
-    <input type="submit" value="2014"></input>
-</form> <form method="post" action="$WebPath.getGRAPHS()?year=2015">
-    <input type="submit" value="2015"></input>
-</form>
-    <form method="post" action="$WebPath.getGRAPHS()?year=2016">
-        <input type="submit" value="2016"></input>
-    </form>
-     <form method="post" action="$WebPath.getGRAPHS()?year=2017">
-    <input type="submit" value="2017"></input></form>
+    <input id="setyear" type="text" name="txtJob" value="$year"><button onclick="newyear()">Set Year</button>
 
 
+<script> function newyear() {
+    year=document.getElementById("setyear").value;
+    window.location.href = "$WebPath.getGRAPHS()?year=" + year;
+}
 
+</script>
+
+
+    <p id="demo"></p></script>
 
 
 
