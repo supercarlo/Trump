@@ -34,6 +34,7 @@ public class GRAPHS {
             return 0;
         }
     }
+
     public String TypeOfproductdataPoints(){
         DBC databasePandaShop = new DBC();
         Statement stat = databasePandaShop.Connection();
@@ -58,6 +59,30 @@ public class GRAPHS {
             return null;
             //return Array array = new Array[0,0];
         }
+    }
+    public String ProductOrderAmountDataPoints(){
+        DBC databasePandaShop = new DBC();
+        Statement stat = databasePandaShop.Connection();
+        String returnstatement = "[";
 
+        try {
+            String query = ("select nameproduct, count(nameproduct) as amountordered from orders group by nameproduct;");
+            ResultSet rs = stat.executeQuery(query);
+            while (rs.next()) {
+                int amount = (rs.getInt("amountordered"));
+                String label = rs.getString("nameproduct");
+                returnstatement += "{ label:\"" + label +"\",  y:"+  amount +"  },";
+
+            }
+            returnstatement +="]";
+            rs.close();
+            return returnstatement;
+
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+            return null;
+            //return Array array = new Array[0,0];
+        }
     }
 }
