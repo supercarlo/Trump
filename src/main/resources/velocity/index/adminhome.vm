@@ -7,4 +7,7 @@
 <form method="post" action="$WebPath.getGRAPHS()?year=2012">
     <input type="submit" value="graphs"></input>
 </form>
+<form method="post" action="$WebPath.getORDER_HISTORY()">
+    <input type="submit" value="orders"></input>
+</form>
 #end

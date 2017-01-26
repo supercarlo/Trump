@@ -1,13 +1,11 @@
 package app;
 
-import app.admin.GraphsController;
-import app.admin.UserChangeController;
-import app.admin.UserDeleteController;
-import app.admin.UsersController;
+import app.admin.*;
 import app.index.IndexController;
 import app.login.*;
 import app.product.ProductController;
 import app.product.ProductDao;
+import app.user.Order_historyController;
 import app.util.Filters;
 import app.util.Path;
 import app.util.ViewUtil;
@@ -44,6 +42,8 @@ public class Application {
         post(Path.Web.ADMINHOME,     AdminHomeController.adminhomepost);
         get(Path.Web.GRAPHS,      GraphsController.graphs);
         post(Path.Web.GRAPHS,     GraphsController.graphspost);
+        get(Path.Web.ORDER_HISTORY,      Order_historyController.order_history);
+        post(Path.Web.ORDER_HISTORY,     Order_historyController.order_historypost);
         get(Path.Web.REGISTER,       RegisterController.register);
         post(Path.Web.REGISTER,      RegisterController.registerpost);
         get(Path.Web.USERS,          UsersController.users);
