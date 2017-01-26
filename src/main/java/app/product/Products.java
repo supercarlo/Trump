@@ -1,7 +1,7 @@
 package app.product;
-
+//
 import lombok.*;
-
+//
 @Value
 public class Products {
     String ID;
@@ -10,10 +10,6 @@ public class Products {
     String name;
     String price;
     String category;
-
-    public String getID() {
-        return ID;
-    }
 
     public String getInfo() {
         return info;
@@ -33,5 +29,9 @@ public class Products {
 
     public String getCategory() {
         return category;
+    }
+
+    public String getID() {
+        return ID;
     }
 }

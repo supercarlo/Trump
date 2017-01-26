@@ -18,7 +18,6 @@ import static app.util.RequestUtil.*;
  */
 public class ProductController {
     public static Route getAllProducts = (Request request, Response response) -> {
-        ProductDao.addAllProducts();
         if (clientAcceptsHtml(request)) {
             HashMap<String, Object> model = new HashMap<>();
             model.put("products", ProductDao.getAllProducts());
@@ -33,13 +32,14 @@ public class ProductController {
     public static Route getOneProduct = (Request request, Response response) -> {
         if (clientAcceptsHtml(request)) {
             HashMap<String, Object> model = new HashMap<>();
-            Products product = ProductDao.getProductByID(getParamID(request));
-            model.put("product", product);
+            model.put("product", ProductDao.getProductByID(getParamID(request)));
             return ViewUtil.render(request, model, Path.Template.PRODUCT);
         }
         if (clientAcceptsJson(request)) {
             return dataToJson(ProductDao.getProductByID(getParamID(request)));
         }
         return ViewUtil.notAcceptable.handle(request, response);
+
+
     };
 }

@@ -8,7 +8,7 @@
                 <div class="bookCover">
                     <img src="$product.getImage()" alt="$product.getName()" style="width: 200px; height: 100px">
                 </div>
-                $msg.get("BOOKS_CAPTION", $product.getName(), $product.getInfo())
+                $msg.get("Price", $product.getName(), $product.getPrice())
             </a>
         </div>
     #end
