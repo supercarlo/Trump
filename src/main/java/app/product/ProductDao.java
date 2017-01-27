@@ -1,9 +1,9 @@
 package app.product;
 
-import app.DBC;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.*;
+        import app.DBC;
+        import java.sql.ResultSet;
+        import java.sql.Statement;
+        import java.util.*;
 
 public class ProductDao {
     Products p;
@@ -33,10 +33,12 @@ public class ProductDao {
     }
 
     public Products getProductByID(String id) {
-        if (products.iterator().hasNext()) {
+        if (id == null) {
+            p = null;
+        }else if (products.iterator().hasNext()) {
             p = products.get(Integer.valueOf(id)-1);
-        } else {
-            p = products.get(products.size()-1);
+        } else if (!products.iterator().hasNext()) {
+            p = products.get(products.size() - 1);
         }
         return p;
     }

@@ -1,0 +1,55 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<body>
+<center>
+<div id="w">
+    <div id="page">
+        <table id="cart">
+            <thead>
+            <tr>
+                <th class="first">Photo</th>
+                <th class="third">Product</th>
+                <th class="fourth">Price</th>
+                <th class="fifth">&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            #if($products)
+            #foreach ($product in $products)
+            <!-- shopping cart contents -->
+            <tr class="productitm">
+                <!-- http://www.inkydeals.com/deal/ginormous-bundle/ -->
+                <td><img src="$product.getImage()" class="thumb" style="width: 100px; height: 100px"></td>
+##                <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+                <td>$product.getName()</td>
+                <td>$product.getPrice()</td>
+                <td><span class="remove"><img src="/img/trash.png" alt="X"></span></td>
+            </tr>
+            #end
+            #else
+            <tr class="productitm">
+                <!-- http://www.inkydeals.com/deal/ginormous-bundle/ -->
+                <td></td>
+            ##                <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            #end
+            <tr class="totalprice">
+                <td class="light"></td>
+                <td colspan="2">&nbsp;</td>
+                <td colspan="2"><span class="thick"></span></td>
+            </tr>
+
+            <!-- checkout btn -->
+            <tr class="checkoutrow">
+                <td colspan="5" class="checkout"><button id="submitbtn">Checkout Now!</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</center>
+</body>
+#end

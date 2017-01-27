@@ -27,7 +27,7 @@ public class UsersController {
     public static Route userspost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
         model.put("users", selectUsers());
-        return ViewUtil.render(request, model, Path.Template.USERCHANGE);
+        return ViewUtil.render(request, model, Path.Template.USERS);
     };
 
     public static ArrayList<String> selectUsers() throws SQLException {

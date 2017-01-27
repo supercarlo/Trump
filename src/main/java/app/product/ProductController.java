@@ -39,7 +39,5 @@ public class ProductController {
             return dataToJson(ProductDao.getProductByID(getParamID(request)));
         }
         return ViewUtil.notAcceptable.handle(request, response);
-
-
     };
 }

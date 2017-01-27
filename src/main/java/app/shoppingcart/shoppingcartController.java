@@ -1,23 +1,34 @@
 package app.shoppingcart;
 
-/**
- * Created by onno on 25-1-2017.
- */
+import app.product.Products;
 import app.util.Path;
 import app.util.ViewUtil;
 import spark.Request;
 import spark.Response;
 import spark.Route;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by onno on 19-1-2017.
- */
+import static app.Application.ProductDao;
+import static app.Application.shoppingcartDAO;
+import static app.util.JsonUtil.dataToJson;
+import static app.util.RequestUtil.clientAcceptsHtml;
+import static app.util.RequestUtil.clientAcceptsJson;
+import static app.util.RequestUtil.getParamID;
+
 public class shoppingcartController {
     public static Route shoppingCart = (Request request, Response response) -> {
-        Map<String, Object> model = new HashMap<>();
-        return ViewUtil.render(request, model, Path.Template.INDEX);
+        if (clientAcceptsHtml(request)) {
+            HashMap<String, Object> model = new HashMap<>();
+            shoppingcartDAO.addProductToCart(getParamID(request));
+            model.put("products", shoppingcartDAO.getAllProductsInCart());
+            return ViewUtil.render(request, model, Path.Template.SHOPPINGCART);
+        }
+        if (clientAcceptsJson(request)) {
+            return dataToJson(ProductDao.getProductByID(getParamID(request)));
+        }
+        return ViewUtil.notAcceptable.handle(request, response);
     };
 }

@@ -5,6 +5,8 @@ import app.index.IndexController;
 import app.login.*;
 import app.product.ProductController;
 import app.product.ProductDao;
+import app.shoppingcart.shoppingcartController;
+import app.shoppingcart.shoppingcartDAO;
 import app.user.Order_historyController;
 import app.util.Filters;
 import app.util.Path;
@@ -17,12 +19,14 @@ public class Application {
 
     // Declare dependencies
     public static ProductDao ProductDao;
+    public static shoppingcartDAO shoppingcartDAO;
 //    public static UserDao UserDao;
 
     public static void main(String[] args) {
 
         // Instantiate your dependencies
         ProductDao = new ProductDao();
+        shoppingcartDAO = new shoppingcartDAO();
 //        UserDao = new UserDao();
 
         // Configure Spark
@@ -59,6 +63,8 @@ public class Application {
         post(Path.Web.USERCHANGE,    UserChangeController.userchangepost);
         get(Path.Web.PRODUCTS,       ProductController.getAllProducts);
         get(Path.Web.PRODUCT,        ProductController.getOneProduct);
+        get(Path.Web.SHOPPINGCARTADD,   shoppingcartController.shoppingCart);
+        get(Path.Web.SHOPPINGCART,   shoppingcartController.shoppingCart);
         get("*",                     ViewUtil.notFound);
 
         //Set up after-filters (called after each get/post)
