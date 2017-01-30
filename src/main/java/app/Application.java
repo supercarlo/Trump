@@ -20,6 +20,7 @@ public class Application {
     // Declare dependencies
     public static ProductDao ProductDao;
     public static shoppingcartDAO shoppingcartDAO;
+    public static useradminchangeDAO useradminchangeDAO;
 //    public static UserDao UserDao;
 
     public static void main(String[] args) {
@@ -27,6 +28,7 @@ public class Application {
         // Instantiate your dependencies
         ProductDao = new ProductDao();
         shoppingcartDAO = new shoppingcartDAO();
+        useradminchangeDAO = new useradminchangeDAO();
 //        UserDao = new UserDao();
 
         // Configure Spark
@@ -59,7 +61,7 @@ public class Application {
         post(Path.Web.LOGOUT,        LoginController.handleLogoutPost);
         get(Path.Web.DELETE,         UserDeleteController.delete);
         post(Path.Web.DELETE,        UserDeleteController.deletepost);
-        get(Path.Web.USERCHANGE,     UserChangeController.userchange);
+        get(Path.Web.USERCHANGE,     UserChangeController.getAllUsers);
         post(Path.Web.USERCHANGE,    UserChangeController.userchangepost);
         get(Path.Web.PRODUCTS,       ProductController.getAllProducts);
         get(Path.Web.PRODUCT,        ProductController.getOneProduct);

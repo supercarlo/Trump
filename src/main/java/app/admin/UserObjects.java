@@ -12,10 +12,12 @@ public class UserObjects {
     String userlevel;
     String firstname;
     String lastname;
-    Date birthdate;
+    String birthdate;
     String creditcardinfo;
-    Date membersince;
+    String membersince;
 
+    public UserObjects(String usernamecustomer, String passwordcustomer, String userlevel, String firstname, String lastname, String birthdate, String creditcardinfo, String membersince) {
+    }
 
     public String getUsernamecustomer() {
         return usernamecustomer;
@@ -37,7 +39,7 @@ public class UserObjects {
         return lastname;
     }
 
-    public Date getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
@@ -45,7 +47,7 @@ public class UserObjects {
         return creditcardinfo;
     }
 
-    public Date getMembersince() {
+    public String getMembersince() {
         return membersince;
     }
 }

@@ -36,6 +36,7 @@ public class Path {
         public final static String GRAPHS = "/velocity/index/graphs.vm";
         public final static String REGISTER = "/velocity/index/register.vm";
         public final static String USERS = "/velocity/index/users.vm";
+        public final static String USERCHANGES = "/velocity/products/allUsers.vm";
         public final static String USERCHANGE = "/velocity/index/userchange.vm";
         public final static String SHOPPINGCART = "/velocity/products/shoppingcart.vm";
     }
