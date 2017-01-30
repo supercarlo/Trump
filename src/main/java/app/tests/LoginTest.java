@@ -18,8 +18,8 @@ public class LoginTest {
         String name2="Toos";
         String name3="Pieter";
         // assert statements
-//        String result2 = tester.multiplyString(name);
-//        assertEquals(name, result2);
+       String result2 = RegisterController.multiplyString(name);
+       assertEquals(name, result2);
 //        String result3 = tester.multiplyString(name2);
 //        assertEquals(name2, result3);
 //        String result4 = tester.multiplyString(name3);
