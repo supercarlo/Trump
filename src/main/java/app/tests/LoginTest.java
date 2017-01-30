@@ -4,6 +4,7 @@ package app.tests;
  * Created by Samuel on 23-01-17.
  */
 
+import app.login.RegisterController;
 import app.login.User;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -13,13 +14,13 @@ import static org.junit.Assert.assertEquals;
 @FixMethodOrder(MethodSorters.JVM)
 public class LoginTest {
 
-//    @Test
-//    public void nameTester() {
-//        RegisterController tester = new RegisterController();
-//        String name="Kees";
-//        String name2="Toos";
-//        String name3="Pieter";
-//        // assert statements
+    @Test
+    public void nameTester() {
+        RegisterController tester = new RegisterController();
+        Boolean name=true;
+        String name2="Toos";
+        String name3="Pieter";
+        // assert statements
 //        String result2 = tester.multiplyString(name);
 //        assertEquals(name, result2);
 //        String result3 = tester.multiplyString(name2);
@@ -28,7 +29,9 @@ public class LoginTest {
 //        assertEquals(name3, result4);
 //        String result = tester.multiplyString("name");
 //        assertEquals("name", result);
-//    }
+        Boolean result0 = tester.multiplyString(name);
+        assertEquals(true, result0);
+    }
 
     @Test
     public void createAdressTester() {
