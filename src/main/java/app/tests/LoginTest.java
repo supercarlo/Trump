@@ -16,7 +16,7 @@ public class LoginTest {
 
     @Test
     public void nameTester() {
-        RegisterController tester = new RegisterController();
+//        RegisterController tester = new RegisterController();
         Boolean name=true;
         String name2="Toos";
         String name3="Pieter";
@@ -29,7 +29,7 @@ public class LoginTest {
 //        assertEquals(name3, result4);
 //        String result = tester.multiplyString("name");
 //        assertEquals("name", result);
-        Boolean result0 = RegisterController.multiplyString(name);
+        Boolean result0 = RegisterController.multiplyString(true);
         assertEquals(true, result0);
     }
 
