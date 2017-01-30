@@ -4,13 +4,10 @@ package app.tests;
  * Created by Samuel on 23-01-17.
  */
 
-import app.login.RegisterController;
 import app.login.User;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-
-import static org.junit.Assert.assertEquals;
 @FixMethodOrder(MethodSorters.JVM)
 public class LoginTest {
 
@@ -29,8 +26,8 @@ public class LoginTest {
 //        assertEquals(name3, result4);
 //        String result = tester.multiplyString("name");
 //        assertEquals("name", result);
-        Boolean result0 = RegisterController.multiplyString(true);
-        assertEquals(true, result0);
+//        Boolean result0 = RegisterController.multiplyString(true);
+//        assertEquals(true, result0);
     }
 
     @Test
