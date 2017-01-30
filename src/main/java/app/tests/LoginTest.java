@@ -29,7 +29,7 @@ public class LoginTest {
 //        assertEquals(name3, result4);
 //        String result = tester.multiplyString("name");
 //        assertEquals("name", result);
-        Boolean result0 = tester.multiplyString(name);
+        Boolean result0 = RegisterController.multiplyString(name);
         assertEquals(true, result0);
     }
 
@@ -57,8 +57,8 @@ public class LoginTest {
         String name3="Pieter";
         String name4="userlevel";
         // assert statements
-        Boolean result = tester.createCustomer(name3, name2, name3, name2, name3,name,name3,name);
-        assertEquals(true, result);
+//        Boolean result = tester.createCustomer(name3, name2, name3, name2, name3,name,name3,name);
+//        assertEquals(true, result);
 //        String result1 = tester.alterCustomer(name4, name2, name3);
 //        assertEquals("userlevel", result1);
 //        String result2 = tester.deleteCustomer(name3);
