@@ -18,8 +18,8 @@ public class Path {
         @Getter public static final String ORDER_HISTORY = "/order_history/";
         @Getter public static final String REGISTER = "/register/";
         @Getter public static final String USERS = "/users/";
+        @Getter public static final String USER = "/users/:username/";
         @Getter public static final String DELETE = "/index/";
-        @Getter public static final String USERCHANGE = "/userchange/";
         @Getter public static final String SHOPPINGCART= "/shoppingcart/";
         @Getter public static final String SHOPPINGCARTADD= "/shoppingcart/:ID/";
     }
@@ -35,9 +35,8 @@ public class Path {
         public final static String ADMINHOME = "/velocity/index/adminhome.vm";
         public final static String GRAPHS = "/velocity/index/graphs.vm";
         public final static String REGISTER = "/velocity/index/register.vm";
-        public final static String USERS = "/velocity/index/users.vm";
-        public final static String USERCHANGES = "/velocity/products/allUsers.vm";
-        public final static String USERCHANGE = "/velocity/index/userchange.vm";
+        public final static String USERS = "/velocity/users/users.vm";
+        public final static String USER = "/velocity/users/user.vm";
         public final static String SHOPPINGCART = "/velocity/products/shoppingcart.vm";
     }
 }

@@ -10,7 +10,7 @@ public class ProductDao {
     DBC dbc = new DBC();
     Statement stat = dbc.Connection();
 
-    public List<Products> products = new ArrayList<>();
+    public static List<Products> products = new ArrayList<>();
 
     public void addAllProducts() {
         try {
@@ -25,7 +25,7 @@ public class ProductDao {
             System.out.println("Error");
         }
     }
-    
+
 
     public Iterable<Products> getAllProducts() {
         products.clear();
@@ -34,13 +34,6 @@ public class ProductDao {
     }
 
     public Products getProductByID(String id) {
-        if (id == null) {
-            p = null;
-        }else if (products.iterator().hasNext()) {
-            p = products.get(Integer.valueOf(id)-1);
-        } else if (!products.iterator().hasNext()) {
-            p = products.get(products.size() - 1);
-        }
-        return p;
+        return products.stream().filter(p -> p.getID().equals(id)).findFirst().orElse(null);
     }
 }

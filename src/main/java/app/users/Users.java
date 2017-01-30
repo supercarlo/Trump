@@ -1,12 +1,20 @@
-package app.admin;
-
-import java.util.Date;
+package app.users;
 
 /**
- * Created by onno on 27-1-2017.
+ * Created by carlo on 30-01-17.
  */
+public class Users {
+    public Users(String usernamecustomer, String passwordcustomer, String userlevel, String firstname, String lastname, String birthdate, String creditcardinfo, String membersince) {
+        this.usernamecustomer = usernamecustomer;
+        this.passwordcustomer = passwordcustomer;
+        this.userlevel = userlevel;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.birthdate = birthdate;
+        this.creditcardinfo = creditcardinfo;
+        this.membersince = membersince;
+    }
 
-public class UserObjects {
     String usernamecustomer;
     String passwordcustomer;
     String userlevel;
@@ -15,9 +23,6 @@ public class UserObjects {
     String birthdate;
     String creditcardinfo;
     String membersince;
-
-    public UserObjects(String usernamecustomer, String passwordcustomer, String userlevel, String firstname, String lastname, String birthdate, String creditcardinfo, String membersince) {
-    }
 
     public String getUsernamecustomer() {
         return usernamecustomer;
@@ -51,4 +56,3 @@ public class UserObjects {
         return membersince;
     }
 }
-

@@ -49,6 +49,10 @@ public class LoginController {
         return ViewUtil.render(request, model, Path.Template.LOGIN);
     };
 
+//    public String getUserSession() {
+//        return
+//    };
+
     public static Route handleLogoutPost = (Request request, Response response) -> {
         request.session().removeAttribute("currentUser");
         request.session().attribute("loggedOut", true);
