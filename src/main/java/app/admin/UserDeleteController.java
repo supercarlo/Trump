@@ -28,6 +28,7 @@ public class UserDeleteController {
         Map<String, Object> model = new HashMap<>();
         request.attribute("delete", request.pathInfo());
         String var = request.session().attribute("modify");
+        System.out.println(var);
         deleteCustomer(var);
       //deleteAdress(getQueryUsername(request));
         model.put("deletesucces", true);
@@ -46,14 +47,24 @@ public class UserDeleteController {
                 JOptionPane.showMessageDialog(null,"No record exists related to "+UsernameCustomer);
             }
             //stat.getConnection().commit();
-
-
-
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
     }
+//public static void deleteCustomer(String UsernameCustomer){
+//    try {
+//        DBC databasePandaShop = new DBC();
+//        Statement stat = databasePandaShop.Connection();
+//        String query = ("DELETE FROM Customer WHERE usernameCustomer = '" + UsernameCustomer + "';");
+//        stat.executeUpdate(query);
+//        stat.getConnection().commit();
+//    } catch (Exception e) {
+//        System.err.println(e.getClass().getName() + ": " + e.getMessage());
+//        System.exit(0);
+//    }
+//
+//}
 
     public static void deleteAdress(String UsernameCustomer){
         DBC dbc = new DBC();

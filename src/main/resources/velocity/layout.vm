@@ -28,9 +28,7 @@
         </ul>
         <ul id="menu">
             <li><a href="$WebPath.getREGISTER()">Register</a></li>
-            <li><a href="$WebPath.getGRAPHS()?year=2012">Graphs</a></li>
             <li><a href="$WebPath.getSHOPPINGCART()">Shopping cart</a></li>
-            <li><a href="$WebPath.getGRAPHS()?year=2012">graphs</a></li>
             <li><a href="$WebPath.getORDER_HISTORY()?year=2012">Order history</a></li>
             #if($authenticationSucceeded)
                 #if($asAdmin)
