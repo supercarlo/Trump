@@ -28,8 +28,8 @@ public class LoginTest {
 //        assertEquals(name3, result4);
 //        String result = tester.multiplyString("name");
 //        assertEquals("name", result);
-        Boolean result0 = RegisterController.multiplyString(true);
-        Assert.assertEquals(true, result0);
+       Boolean result0 = RegisterController.multiplyString(true);
+       Assert.assertEquals(true, result0);
     }
 
     @Test

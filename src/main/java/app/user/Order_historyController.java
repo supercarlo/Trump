@@ -27,6 +27,7 @@ public class Order_historyController {
            //model.put("url", request.url());
             model.put("history", order_history);
             model.put("request", request);
+            model.put("username", request.session().attribute("currentUser"));
             Template template =  null;
 
 
