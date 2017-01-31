@@ -3,7 +3,8 @@ package app.users;
 import app.DBC;
 
 
-        import java.sql.ResultSet;
+import javax.swing.*;
+import java.sql.ResultSet;
         import java.sql.Statement;
         import java.util.ArrayList;
         import java.util.List;
@@ -40,9 +41,24 @@ public class UsersDAO {
     }
 
     public Users getUsernameByParam(String usernamecustomer) {
-
-        System.out.println(usernamecustomer);
-        System.out.println(users.stream().filter(u -> u.getUsernamecustomer().equals(usernamecustomer)).findFirst().orElse(null));
         return users.stream().filter(u -> u.getUsernamecustomer().equals(usernamecustomer)).findFirst().orElse(null);
+    }
+
+    public void deleteUser(String usernamecustomer) {
+        DBC dbc = new DBC();
+        Statement stat = dbc.Connection();
+        try {
+            //Statement stat = dbc.Connection();
+            int result = stat.executeUpdate("delete from customer where usernamecustomer = '"+usernamecustomer+"'" );
+            stat.getConnection().commit();
+
+            if(result!=1){
+                JOptionPane.showMessageDialog(null,"No record exists related to "+usernamecustomer);
+            }
+            //stat.getConnection().commit();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
     }
 }
