@@ -13,14 +13,16 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
+import static app.util.RequestUtil.getQueryUsername;
+
 /**
  * Created by carlo on 09-11-16.
  */
 public class UserDeleteController {
     public static Route delete = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
-//        request.attribute("delete", request.pathInfo());
-//        model.put("deletesucces", true);
+        request.attribute("delete", request.pathInfo());
+        model.put("deletesucces", true);
         return ViewUtil.render(request, model, Path.Template.INDEX);
     };
 
@@ -30,7 +32,7 @@ public class UserDeleteController {
         String var = request.session().attribute("modify");
         System.out.println(var);
         deleteCustomer(var);
-      //deleteAdress(getQueryUsername(request));
+      deleteAdress(getQueryUsername(request));
         model.put("deletesucces", true);
         return ViewUtil.render(request, model, Path.Template.ADMINHOME);
     };

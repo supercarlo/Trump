@@ -1,6 +1,13 @@
 #parse("/velocity/layout.vm")
+
+
 #@mainLayout()
-    <p>Home home</p>
+    <p>Home HOME  home</p>
+<button type="button">Click Me!</button>
+<IMG src="/img/panda2.png" height="150" width="150" align="top">
+
+
+
     #if($book)
     <h2>$msg.get("INDEX_BOOK_OF_THE_DAY_TEXT")</h2>
     <div class="row row-2">
@@ -13,3 +20,6 @@
         </div>
     #end
 #end
+
+
+

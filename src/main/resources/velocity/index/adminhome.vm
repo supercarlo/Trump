@@ -1,13 +1,20 @@
 #parse("/velocity/layout.vm")
 #@mainLayout()
+
+
+
 <p>Admin home</p>
+    <p> THIS ADMIN PAGE IS ONLY FOR ADMINS </p>
+
 <form method="post" action="$WebPath.getUSERS()">
     <input type="submit" value="User list"></input>
 </form>
 <form method="post" action="$WebPath.getGRAPHS()?year=2012">
-    <input type="submit" value="graphs"></input>
+    <input type="submit" value="Graphs"></input>
 </form>
 <form method="post" action="$WebPath.getORDER_HISTORY()">
-    <input type="submit" value="orders"></input>
+    <input type="submit" value="Orders"></input>
 </form>
+
+
 #end

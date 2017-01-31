@@ -38,7 +38,7 @@ public class Application {
         // Configure Spark
         port(4567);
         staticFiles.location("/public");
-        staticFiles.expireTime(600L);
+        staticFiles.expireTime(6000L);
         enableDebugScreen();
 
         // Set up before-filters (called before each get/post)
@@ -68,7 +68,8 @@ public class Application {
         get(Path.Web.SHOPPINGCARTADD,   shoppingcartController.shoppingCart);
         get(Path.Web.SHOPPINGCART,   shoppingcartController.shoppingCart);
         post(Path.Web.USERS, UsersController.getAllUsers);
-        post(Path.Web.USER, UsersController.getOneUser);
+        get(Path.Web.USER, UsersController.getOneUser);
+        post(Path.Web.DELETEUSER,   UserDeleteController.delete);
         get("*",                     ViewUtil.notFound);
 
         //Set up after-filters (called after each get/post)

@@ -29,6 +29,11 @@ public class LoginController {
         int level = userController.login(username, password);
 
 
+
+
+
+
+
         if (level == 2) {
 //            app.login.User login
             request.session().attribute("currentUser", username);
@@ -56,7 +61,7 @@ public class LoginController {
     public static Route handleLogoutPost = (Request request, Response response) -> {
         request.session().removeAttribute("currentUser");
         request.session().attribute("loggedOut", true);
-        response.redirect(Path.Web.LOGIN);
+        response.redirect(Path.Web.INDEX);
         return null;
     };
 

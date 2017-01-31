@@ -1,16 +1,19 @@
 #parse("/velocity/layout.vm")
 #@mainLayout()
     #if($product)
-        <center>
-    <h1>$product.getName()</h1>
-    <h2>$product.getInfo()</h2>
-    <div class="book">
-        <div class="bookCover">
-            <img src="$product.getImage()" alt="$product.getName()" style="width: 350px; height: 450px">
+    <form method="post" action="$WebPath.getADMINHOME()">
+        <input type="submit" value="Home"></input>
+    </form>
+    <center>
+        <h1>$product.getName()</h1>
+        <h2>$product.getInfo()</h2>
+        <div class="book">
+            <div class="bookCover">
+                <img src="$product.getImage()" alt="$product.getName()" style="width: 350px; height: 450px">
+            </div>
+            <a href="$WebPath.getSHOPPINGCART()$product.getID()">Buy this product!</a>
         </div>
-        <a href="$WebPath.getSHOPPINGCART()$product.getID()">Buy this product!</a>
-    </div>
-        </center>
+    </center>
     #else
     <h1>Product not found!</h1>
     #end

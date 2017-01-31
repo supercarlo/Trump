@@ -13,6 +13,7 @@ function Changeyear(){
 }
 </script>
 
+
 <script type='text/javascript'>//<![CDATA[
 
 window.onload=function(){
@@ -134,8 +135,10 @@ window.onload=function(){
 
     #parse("/velocity/layout.vm")
 #@mainLayout()
-<p>Graphs home</p>
-
+<p>Graphs</p>
+<form method="post" action="$WebPath.getADMINHOME()">
+    <input type="submit" value="Home"></input>
+</form>
 
 <head>
 

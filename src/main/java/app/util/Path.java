@@ -20,6 +20,7 @@ public class Path {
         @Getter public static final String USERS = "/users/";
         @Getter public static final String USER = "/users/:username/";
         @Getter public static final String DELETE = "/index/";
+        @Getter public static final String DELETEUSER= "/deleteuser/";
         @Getter public static final String SHOPPINGCART= "/shoppingcart/";
         @Getter public static final String SHOPPINGCARTADD= "/shoppingcart/:ID/";
     }
@@ -37,6 +38,7 @@ public class Path {
         public final static String REGISTER = "/velocity/index/register.vm";
         public final static String USERS = "/velocity/users/users.vm";
         public final static String USER = "/velocity/users/user.vm";
+        public final static String DELETEUSER ="/velocity/users/deleteuser.vm";
         public final static String SHOPPINGCART = "/velocity/products/shoppingcart.vm";
     }
 }

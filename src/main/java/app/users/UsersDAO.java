@@ -15,11 +15,11 @@ public class UsersDAO {
     DBC dbc = new DBC();
     Statement stat = dbc.Connection();
 
-    public List<Users> users = new ArrayList<>();
+    public ArrayList<Users> users = new ArrayList<>();
 
     public void addAllUsers() {
         try {
-            String query = ("select usernamcustomer, passwordcustomer, userlevel, firstname, lastname, birthdate, creditcardinfo, membersince from customer");
+            String query = ("select usernamecustomer, passwordcustomer, userlevel, firstname, lastname, birthdate, creditcardinfo, membersince from customer");
             stat.getConnection().commit();
             ResultSet rs = stat.executeQuery(query);
 

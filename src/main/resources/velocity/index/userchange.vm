@@ -3,4 +3,8 @@
     <form method="post" action="$WebPath.getDELETE()">
         <input type="submit" name="delete" value="Delete"></input>
     </form>
+
+<form method="post" action="$WebPath.getUSERS()">
+    <input type="submit" value="Back"></input>
+</form>
 #end

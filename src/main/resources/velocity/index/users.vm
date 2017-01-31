@@ -10,4 +10,7 @@
             <input type="submit" name="$user" value="$user"></input> <br>
         #end
     </form>
+    <form method="post" action="$WebPath.getADMINHOME()">
+        <input type="submit" value="Home"></input>
+    </form>
 #end

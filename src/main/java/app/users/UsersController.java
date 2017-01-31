@@ -30,6 +30,7 @@ public class UsersController {
     };
 
     public static Route getOneUser = (Request request, Response response) -> {
+
         if (clientAcceptsHtml(request)) {
             HashMap<String, Object> model = new HashMap<>();
             model.put("user", UserDAO.getUsernameByParam(getQueryUsername(request)));
