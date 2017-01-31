@@ -1,11 +1,9 @@
 #parse("/velocity/layout.vm")
 #@mainLayout()
-<p>Order history</p>
+<p><B>Order history</B></p>
     #set( $orderids = $history.GetOrderIDs("'admin'"))
-    $orderids
-    <br>
-    $history.ShowOrderHistory($orderids)
-    #set( $history = $history.ShowOrderHistory($orderids))
+
+
 
 <style>
     table {
@@ -26,4 +24,5 @@
 </style>
 
 
+    $history.GenerateHTMLTable($orderids, $history.ShowOrderHistory($orderids))
 #end
