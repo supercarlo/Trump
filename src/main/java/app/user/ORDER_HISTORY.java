@@ -2,7 +2,6 @@ package app.user;
 
 import app.DBC;
 
-import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -58,6 +57,7 @@ public class ORDER_HISTORY {
             return myList;
         }
     }
+
     public String GenerateHTMLTable(List orderlist) {
         String Header = "<table>\n" +
                 "  <tr>\n" +
@@ -74,4 +74,7 @@ public class ORDER_HISTORY {
 
 
     }
+
+
+
 }

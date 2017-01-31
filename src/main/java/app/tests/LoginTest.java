@@ -20,16 +20,16 @@ public class LoginTest {
         String name2="Toos";
         String name3="Pieter";
         // assert statements
-       Boolean result2 = RegisterController.multiplyString(name);
-        Assert.assertEquals(name, result2);
+//       Boolean result2 = RegisterController.multiplyString(name);
+//        Assert.assertEquals(name, result2);
 //        String result3 = tester.multiplyString(name2);
 //        assertEquals(name2, result3);
 //        String result4 = tester.multiplyString(name3);
 //        assertEquals(name3, result4);
 //        String result = tester.multiplyString("name");
 //        assertEquals("name", result);
-//        Boolean result0 = RegisterController.multiplyString(true);
-//        Assert.assertEquals(true, result0);
+        Boolean result0 = RegisterController.multiplyString(true);
+        Assert.assertEquals(true, result0);
     }
 
     @Test
