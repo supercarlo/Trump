@@ -13,6 +13,7 @@ public class DBC {
             Class.forName("org.postgresql.Driver");
 //            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Fietdief", "123", "123");
             c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Fietsdief","123", "123");
+//            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/pandaWebShop","postgres", "");
             c.setAutoCommit(false);
             stat = c.createStatement();
         } catch (Exception e) {
