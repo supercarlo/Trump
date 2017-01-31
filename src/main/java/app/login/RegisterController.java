@@ -1,5 +1,6 @@
 package app.login;
 
+import app.admin.UsersController;
 import app.user.UserController;
 import app.util.Path;
 import app.util.ViewUtil;
@@ -22,7 +23,7 @@ public class RegisterController {
 
     public static Route registerpost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
-        UserController userController = new UserController();
+        UsersController usersController = new UsersController();
         String firstname = request.queryParams("firstname");
         String lastname = request.queryParams("lastname");
         String username = request.queryParams("username");

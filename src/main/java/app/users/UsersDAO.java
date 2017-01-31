@@ -33,7 +33,7 @@ public class UsersDAO {
     }
 
     public Iterable<Users> getAllUsers() {
-        System.out.println(users);
+        //System.out.println(users);
         users.clear();
         addAllUsers();
         return users;

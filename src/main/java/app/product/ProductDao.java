@@ -6,7 +6,6 @@ import java.sql.Statement;
 import java.util.*;
 
 public class ProductDao {
-    Products p;
     DBC dbc = new DBC();
     Statement stat = dbc.Connection();
 
@@ -17,7 +16,6 @@ public class ProductDao {
             String query = ("select productid, info, image, nameproduct, price, categoryname from product");
             stat.getConnection().commit();
             ResultSet rs = stat.executeQuery(query);
-
             while (rs.next()) {
                 products.add(new Products(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
             }
