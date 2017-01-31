@@ -2,10 +2,11 @@ package app.users;
 
 import app.DBC;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+
+        import java.sql.ResultSet;
+        import java.sql.Statement;
+        import java.util.ArrayList;
+        import java.util.List;
 
 /**
  * Created by carlo on 30-01-17.
@@ -15,7 +16,7 @@ public class UsersDAO {
     DBC dbc = new DBC();
     Statement stat = dbc.Connection();
 
-    public ArrayList<Users> users = new ArrayList<>();
+    public List<Users> users = new ArrayList<>();
 
     public void addAllUsers() {
         try {
@@ -32,13 +33,16 @@ public class UsersDAO {
     }
 
     public Iterable<Users> getAllUsers() {
+        System.out.println(users);
         users.clear();
         addAllUsers();
-        System.out.println(users);
         return users;
     }
 
     public Users getUsernameByParam(String usernamecustomer) {
+
+        System.out.println(usernamecustomer);
+        System.out.println(users.stream().filter(u -> u.getUsernamecustomer().equals(usernamecustomer)).findFirst().orElse(null));
         return users.stream().filter(u -> u.getUsernamecustomer().equals(usernamecustomer)).findFirst().orElse(null);
     }
 }

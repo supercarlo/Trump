@@ -2,11 +2,13 @@
 #@mainLayout()
 <h1>All users</h1>
 <div class="row row-3">
-##joe
+
     #foreach($user in $users)
         <div class="col">
-            <a class="book" href="$WebPath.getUSERS()$user.getUsernamecustomer())">
+
+            <a class="book" href="$WebPath.getUSERS()$user.getUsernamecustomer()">
             <p>$user.getUsernamecustomer()</p>
+
             </a>
         </div>
     #end

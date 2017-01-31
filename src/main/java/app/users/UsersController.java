@@ -33,11 +33,11 @@ public class UsersController {
 
         if (clientAcceptsHtml(request)) {
             HashMap<String, Object> model = new HashMap<>();
-            model.put("user", UserDAO.getUsernameByParam(getQueryUsername(request)));
+            model.put("user", UserDAO.getUsernameByParam(getParamUsername(request)));
             return ViewUtil.render(request, model, Path.Template.USER);
         }
         if (clientAcceptsJson(request)) {
-            return dataToJson(UserDAO.getUsernameByParam(getQueryUsername(request)));
+            return dataToJson(UserDAO.getUsernameByParam(getParamUsername(request)));
         }
         return ViewUtil.notAcceptable.handle(request, response);
     };

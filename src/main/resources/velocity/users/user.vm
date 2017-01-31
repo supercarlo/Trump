@@ -9,7 +9,6 @@
         <h2>$user.getFirstname()</h2>
         <div class="book">
             <div class="bookCover">
-                <img src="$user.getFirstname()" alt="$user.getUsernamecustomer()" style="width: 350px; height: 450px">
 
 
             </div>
