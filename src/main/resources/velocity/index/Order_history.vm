@@ -1,28 +1,38 @@
 #parse("/velocity/layout.vm")
 #@mainLayout()
-<p><B>Order history</B></p>
-    #set( $orderids = $history.GetOrderIDs("'admin'"))
+    #if ( ! $username)
+        Please Log in to see your Order history
+
+    #else
 
 
 
-<style>
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
 
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
+    <p><B>Order history of $username.</B></p>
 
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
-</style>
+        #set( $orderids = $history.GetOrderIDs("'$username'"))
 
 
-    $history.GenerateHTMLTable($orderids, $history.ShowOrderHistory($orderids))
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
+
+        $history.GenerateHTMLTable($orderids, $history.ShowOrderHistory($orderids))
+        #end
 #end
