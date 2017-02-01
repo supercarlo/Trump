@@ -16,6 +16,7 @@ public class User { // create a customer (with an andress) in DataBase
         DBC databasePandaShop = new DBC();
         Statement stat = databasePandaShop.Connection();
         int countExistenceofUsername = 0;
+
         try {
             String query = ("select usernamecustomer from Customer where usernamecustomer = '" + UsernameCustomer + "' ;");
             ResultSet rs = stat.executeQuery(query);
