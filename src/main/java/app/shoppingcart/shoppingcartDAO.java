@@ -17,6 +17,8 @@ public class shoppingcartDAO {
     }
 
     public void addProductToCart(String id) {
-        shoppingcartproducts.add(ProductDao.getProductByID(id));
+        if (id != null) {
+            shoppingcartproducts.add(ProductDao.getProductByID(id));
+        }
     }
 }
