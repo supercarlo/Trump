@@ -1,5 +1,6 @@
 package app.product;
 
+import app.fav.Fav;
 import app.util.Path;
 import app.util.ViewUtil;
 import spark.Request;
@@ -20,6 +21,8 @@ public class ProductController {
     public static Route getAllProducts = (Request request, Response response) -> {
         if (clientAcceptsHtml(request)) {
             HashMap<String, Object> model = new HashMap<>();
+            Fav fav = new Fav();
+            model.put("fav", fav);
             model.put("products", ProductDao.getAllProducts());
             return ViewUtil.render(request, model, Path.Template.PRODUCTS);
         }
@@ -32,6 +35,9 @@ public class ProductController {
     public static Route getOneProduct = (Request request, Response response) -> {
         if (clientAcceptsHtml(request)) {
             HashMap<String, Object> model = new HashMap<>();
+            Fav fav = new Fav();
+            model.put("fav", fav);
+            model.put("username", request.session().attribute("currentUser"));
             model.put("product", ProductDao.getProductByID(getParamID(request)));
             return ViewUtil.render(request, model, Path.Template.PRODUCT);
         }

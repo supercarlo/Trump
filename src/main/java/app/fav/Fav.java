@@ -47,8 +47,24 @@ public class Fav {
         return  TotalHTML;
     }
 
+    public void AddFav(String Username, Integer product_id) {
+        DBC databasePandaShop = new DBC();
+        Statement stat = databasePandaShop.Connection();
+        try {
+            String query = ("IINSERT INTO TABLE_NAME (customername, product_id)\n" +
+                    "VALUES (" +
+                    Username + ", " + product_id + "); ");
+            ResultSet rs = stat.executeQuery(query);
 
 
+            rs.close();
+
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+
+        }
+    }
 
 
     public String GetProductName(int ID) {
