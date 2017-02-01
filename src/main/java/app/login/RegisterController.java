@@ -1,7 +1,6 @@
 package app.login;
 
 import app.admin.UsersController;
-import app.user.UserController;
 import app.util.Path;
 import app.util.ViewUtil;
 import spark.Request;
@@ -21,6 +20,8 @@ public class RegisterController {
         return ViewUtil.render(request, model, Path.Template.REGISTER);
     };
 
+
+
     public static Route registerpost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
         UsersController usersController = new UsersController();
@@ -35,21 +36,16 @@ public class RegisterController {
         String birthDate = birthyear + "-"  + birthmonth + "-" + birthday;
 
         User customer = new User();
-        boolean a = customer.createCustomer(username, password, "user", firstname, lastname, birthDate,  creditcardnumber, "2012-02-02" );
+        Boolean a = customer.createCustomer(username, password, "user", firstname, lastname, birthDate,  creditcardnumber, "2012-02-02" );
         System.out.println(a);
-
-
-//            request.session().attribute("currentUser", firstname);
-//            model.put("firstname", firstname);
-//            response.redirect(Path.Web.CUSTOMERHOME);
-//
-//            request.session().attribute("currentUser", lastname);
-//            model.put("lastname", lastname);
-//            response.redirect(Path.Web.ADMINHOME);
-
-
 
         return ViewUtil.render(request, model, Path.Template.LOGIN);
 
     };
+
+    public Boolean multiplyString(boolean name){
+        System.out.println("Multiplication result is " +name);
+
+        return true;
+    }
 }

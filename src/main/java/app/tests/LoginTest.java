@@ -21,7 +21,7 @@ public class LoginTest {
         String name2="Toos";
         String name3="Pieter";
         // assert statements
-       Boolean result2 = (name);
+       Boolean result2 = tester.multiplyString(name);
         Assert.assertEquals(name, result2);
 //        Boolean result3 = tester.multiplyString(name);
 //        Assert.assertEquals(name2, result3);
