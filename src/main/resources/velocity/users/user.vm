@@ -6,13 +6,16 @@
     </form>
     <center>
         <h1>$user.getUsernamecustomer()</h1>
-        <h2>$user.getFirstname()</h2>
         <div class="book">
             <div class="bookCover">
             </div>
-            <form method="post" action="$WebPath.getADMINHOME()">
-                <input type="submit" value="Delete"></input>
+            <form method="post" action="$WebPath.getALTERUSER()">
+                <input type="submit" value="Alter"></input>
             </form>
+##            <form method="post" action="$WebPath.getADMINHOME()">
+##                <input type="submit" value="Delete"></input>
+##            </form>
+
             ##<a href="$WebPath.getDELETEUSER()$user.getUsernamecustomer()">Delete this mofocke!</a>
 
         </div>

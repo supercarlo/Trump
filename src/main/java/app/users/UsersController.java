@@ -34,6 +34,18 @@ public class UsersController {
         if (clientAcceptsHtml(request)) {
             HashMap<String, Object> model = new HashMap<>();
             model.put("user", UserDAO.getUsernameByParam(getParamUsername(request)));
+            //UserDAO.deleteUser(getParamUsername(request));
+            return ViewUtil.render(request, model, Path.Template.USER);
+        }
+        if (clientAcceptsJson(request)) {
+            return dataToJson(UserDAO.getUsernameByParam(getParamUsername(request)));
+        }
+        return ViewUtil.notAcceptable.handle(request, response);
+    };
+    public static Route deleteUSer = (Request request, Response response) -> {
+
+        if (clientAcceptsHtml(request)) {
+            HashMap<String, Object> model = new HashMap<>();
             UserDAO.deleteUser(getParamUsername(request));
             return ViewUtil.render(request, model, Path.Template.USER);
         }
@@ -42,4 +54,5 @@ public class UsersController {
         }
         return ViewUtil.notAcceptable.handle(request, response);
     };
+
 }
