@@ -24,9 +24,10 @@ public class UsersController {
         return ViewUtil.render(request, model, Path.Template.USERS);
     };
 
+
     public static Route userspost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
-        model.put("users", selectUsers());
+        model.put("user", selectUsers());
         return ViewUtil.render(request, model, Path.Template.USERS);
     };
 

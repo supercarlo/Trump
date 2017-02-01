@@ -66,7 +66,7 @@ public class GRAPHS {
         String returnstatement = "[";
 
         try {
-            String query = ("select nameproduct, count(nameproduct) as amountordered from orders group by nameproduct;");
+            String query = ("select p.nameproduct, SUM(oh.quantity) as amountordered From product p, orders_history oh Where p.productid = oh.poduct_id group by p.nameproduct;");
             ResultSet rs = stat.executeQuery(query);
             while (rs.next()) {
                 int amount = (rs.getInt("amountordered"));

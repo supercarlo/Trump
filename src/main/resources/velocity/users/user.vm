@@ -9,10 +9,12 @@
         <h2>$user.getFirstname()</h2>
         <div class="book">
             <div class="bookCover">
-
-
             </div>
-            <a href="$WebPath.getDELETEUSER()$user.getUsernamecustomer()">Delete this mofocke!</a>
+            <form method="post" action="$WebPath.getADMINHOME()">
+                <input type="submit" value="Delete"></input>
+            </form>
+            ##<a href="$WebPath.getDELETEUSER()$user.getUsernamecustomer()">Delete this mofocke!</a>
+
         </div>
     </center>
     #else

@@ -25,18 +25,13 @@ public class GraphsController {
 
         public static Route graphs = (Request request, Response response) -> {
             Map<String, Object> model = new HashMap<>();
-
             VelocityContext context = new VelocityContext();
             GRAPHS graphs = new GRAPHS();
             request.url();
-
             model.put("graphmaker", graphs);
            //model.put("url", request.url());
             model.put("request", request);
             Template template =  null;
-
-
-
             return ViewUtil.render(request, model, Path.Template.GRAPHS);
         };
 

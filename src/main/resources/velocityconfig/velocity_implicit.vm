@@ -3,10 +3,8 @@
 #* @vtlvariable name="msg" type="app.util.MessageBundle" *#
 #* @vtlvariable name="products" type="java.lang.Iterable<app.product.Products>" *#
 #* @vtlvariable name="product" type="app.product.Products" *#
-
 #* @vtlvariable name="users" type="java.lang.Iterable<app.users.Users>" *#
 #* @vtlvariable name="user" type="app.users.Users" *#
-
 #* @vtlvariable name="currentUser" type="java.lang.String" *#
 #* @vtlvariable name="loggedOut" type="java.lang.String" *#
 #* @vtlvariable name="authenticationFailed" type="java.lang.String" *#
