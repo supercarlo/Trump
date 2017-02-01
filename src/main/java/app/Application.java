@@ -3,6 +3,7 @@ package app;
 import app.admin.*;
 import app.index.IndexController;
 import app.login.*;
+import app.fav.*;
 import app.product.ProductController;
 import app.product.ProductDao;
 import app.shoppingcart.shoppingcartController;
@@ -67,6 +68,8 @@ public class Application {
         get(Path.Web.PRODUCT,        ProductController.getOneProduct);
         get(Path.Web.SHOPPINGCARTADD,   shoppingcartController.shoppingCart);
         get(Path.Web.SHOPPINGCART,   shoppingcartController.shoppingCart);
+        get(Path.Web.FAVADD,   favController.fav);
+        get(Path.Web.FAV,   favController.fav);
         post(Path.Web.USERS, UsersController.getAllUsers);
         get(Path.Web.USER, UsersController.getOneUser);
         post(Path.Web.DELETEUSER,   UserDeleteController.delete);
