@@ -15,13 +15,13 @@ public class LoginTest {
 
    @Test
    public void nameTester() {
-//        RegisterController tester = new RegisterController();
+       RegisterController tester = new RegisterController();
        Boolean name=true;
        String name2="Toos";
        String name3="Pieter";
        // assert statements
-//       Boolean result2 = RegisterController.multiplyString(name);
-//        Assert.assertEquals(name, result2);
+      Boolean result2 = RegisterController.multiplyString(name);
+       Assert.assertEquals(name, result2);
 //        String result3 = tester.multiplyString(name2);
 //        assertEquals(name2, result3);
 //        String result4 = tester.multiplyString(name3);
