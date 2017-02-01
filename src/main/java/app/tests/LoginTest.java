@@ -43,6 +43,7 @@ public class LoginTest {
         Assert.assertEquals(name, result2);
     }
 
+
     @Test
     public void createCustomerTester() {
         User tester = new User();
