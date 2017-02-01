@@ -51,6 +51,7 @@ public class LoginTest {
         String name2="Toos";
         String name3="Pieter";
         String name4="userlevel";
+        String name5="admin";
         // assert statements
         Boolean result = tester.createCustomer(name3, name2, name3, name2, name3,name,name3,name);
         Assert.assertEquals(true, result);
@@ -58,6 +59,8 @@ public class LoginTest {
         Assert.assertEquals("userlevel", result1);
         String result2 = tester.deleteCustomer(name3);
         Assert.assertEquals(name3, result2);
+//        Boolean Remcodeletteveel = tester.createCustomer(name5, name5, name5, name2, name3,name,name3,name);
+//        Assert.assertEquals(true, Remcodeletteveel);
   }
 
     @Test
