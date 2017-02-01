@@ -22,7 +22,7 @@ public class LoginTest {
         String name2="Toos";
         String name3="Pieter";
         // assert statements
-       Boolean result2 = multiplyString(name);
+       Boolean result2 =(name);
         Assert.assertEquals(name, result2);
 //        String result3 = tester.multiplyString(name2);
 //        assertEquals(name2, result3);
@@ -30,7 +30,7 @@ public class LoginTest {
 //        assertEquals(name3, result4);
 //        String result = tester.multiplyString("name");
 //        assertEquals("name", result);
-       Boolean result0 = multiplyString(true);
+       Boolean result0 =(true);
        Assert.assertEquals(true, result0);
     }
 
