@@ -7,7 +7,6 @@
 
         #set( $list = $fav.GetFAV("'$username'"))
 
-
     <p><B>Favourites of $username.</B></p>
 
 

@@ -11,6 +11,8 @@ import spark.Route;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.sun.xml.internal.ws.client.ContentNegotiation.none;
+
 /**
  * Created by wrket on 19-Jan-17.
  */
@@ -23,7 +25,10 @@ public class favController {
 
             request.url();
 
-
+            if (request.queryParams("id") != null && (request.session().attribute("currentUser") !=null ))
+            {
+                fav.AddFav(request.session().attribute("currentUser"), Integer.valueOf(request.queryParams("id")));
+            }
            //model.put("url", request.url());
             model.put("fav", fav);
             model.put("request", request);

@@ -18,7 +18,7 @@ public class Fav {
         Statement stat = databasePandaShop.Connection();
         List myList = new ArrayList();
         try {
-            String query = ("SElect p.nameproduct from product p, favourites f where f.customername = " + usernamecustomer + " and f.product_id = p.productid;");
+            String query = ("SElect p.nameproduct from product p, favourites2 f where f.customername = " + usernamecustomer + " and f.product_id = p.productid;");
             ResultSet rs = stat.executeQuery(query);
             while (rs.next()) {
                 myList.add(rs.getString("nameproduct"));
@@ -51,13 +51,11 @@ public class Fav {
         DBC databasePandaShop = new DBC();
         Statement stat = databasePandaShop.Connection();
         try {
-            String query = ("IINSERT INTO TABLE_NAME (customername, product_id)\n" +
-                    "VALUES (" +
-                    Username + ", " + product_id + "); ");
-            ResultSet rs = stat.executeQuery(query);
-
-
-            rs.close();
+            stat.executeUpdate ("INSERT INTO favourites2 (customername, product_id)\n" +
+                    "VALUES ('" +
+                    Username + "', " + product_id + "); ");
+            stat.getConnection().commit();
+           stat.close();
 
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
