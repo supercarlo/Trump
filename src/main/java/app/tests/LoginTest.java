@@ -23,8 +23,8 @@ public class LoginTest {
         // assert statements
        Boolean result2 = (name);
         Assert.assertEquals(name, result2);
-        Boolean result3 = tester.multiplyString(name);
-        Assert.assertEquals(name2, result3);
+//        Boolean result3 = tester.multiplyString(name);
+//        Assert.assertEquals(name2, result3);
 //        String result4 = tester.multiplyString(name3);
 //        assertEquals(name3, result4);
 //        String result = tester.multiplyString("name");
