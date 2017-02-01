@@ -29,7 +29,7 @@
         <ul id="menu">
             <li><a href="$WebPath.getREGISTER()">Register</a></li>
             <li><a href="$WebPath.getSHOPPINGCART()">Shopping cart</a></li>
-            <li><a href="$WebPath.getFAV()"> FAV</a></li>
+            <li><a href="$WebPath.getFAV()"> Favourites</a></li>
             <li><a href="$WebPath.getORDER_HISTORY()">Order history</a></li>
             #if($authenticationSucceeded)
                 #if($asAdmin)
