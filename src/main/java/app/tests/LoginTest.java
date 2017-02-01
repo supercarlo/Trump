@@ -10,7 +10,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import static app.login.RegisterController.multiplyString;
+// import static app.login.RegisterController.multiplyString;
 
 @FixMethodOrder(MethodSorters.JVM)
 public class LoginTest {
