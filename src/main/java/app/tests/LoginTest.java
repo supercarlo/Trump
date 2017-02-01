@@ -4,34 +4,33 @@ package app.tests;
  * Created by Samuel on 23-01-17.
  */
 
+import app.login.RegisterController;
 import app.login.User;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import static app.login.RegisterController.multiplyString;
-
 @FixMethodOrder(MethodSorters.JVM)
 public class LoginTest {
 
     @Test
     public void nameTester() {
-//        RegisterController tester = new RegisterController();
+        RegisterController tester = new RegisterController();
         Boolean name=true;
         String name2="Toos";
         String name3="Pieter";
         // assert statements
-       Boolean result2 = multiplyString(name);
+       Boolean result2 = (name);
         Assert.assertEquals(name, result2);
-//        String result3 = tester.multiplyString(name2);
-//        assertEquals(name2, result3);
+        Boolean result3 = tester.multiplyString(name);
+        Assert.assertEquals(name2, result3);
 //        String result4 = tester.multiplyString(name3);
 //        assertEquals(name3, result4);
 //        String result = tester.multiplyString("name");
 //        assertEquals("name", result);
-       Boolean result0 = multiplyString(true);
-       Assert.assertEquals(true, result0);
+//       Boolean result0 = multiplyString(true);
+//       Assert.assertEquals(true, result0);
     }
 
     @Test
