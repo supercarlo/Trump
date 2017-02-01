@@ -11,9 +11,8 @@ public class DBC {
         try {
             //Driver name + credentials + ip address check.
             Class.forName("org.postgresql.Driver");
-//            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Fietdief", "123", "123");
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Fietsdief","123", "123");
-//            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/pandaWebShop","postgres", "");
+//            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Fietsdief","123", "123");
+            c = DriverManager.getConnection("jdbc:postgresql://83.86.251.189:5432/postgres","postgres", "postgres");
             c.setAutoCommit(false);
             stat = c.createStatement();
         } catch (Exception e) {
