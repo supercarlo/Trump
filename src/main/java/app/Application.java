@@ -13,6 +13,7 @@ import app.users.UsersDAO;
 import app.util.Filters;
 import app.util.Path;
 import app.util.ViewUtil;
+import app.admin.UserAlterController;
 
 import static spark.Spark.*;
 import static spark.debug.DebugScreen.enableDebugScreen;
@@ -61,15 +62,19 @@ public class Application {
         post(Path.Web.LOGOUT,        LoginController.handleLogoutPost);
         post(Path.Web.LOGIN,         LoginController.handleLoginPost);
         post(Path.Web.LOGOUT,        LoginController.handleLogoutPost);
-        get(Path.Web.DELETE,         UserDeleteController.delete);
-        post(Path.Web.DELETE,        UserDeleteController.deletepost);
+//        get(Path.Web.DELETE,         UserDeleteController.delete);
+//        post(Path.Web.DELETE,        UserDeleteController.deletepost);
         get(Path.Web.PRODUCTS,       ProductController.getAllProducts);
         get(Path.Web.PRODUCT,        ProductController.getOneProduct);
         get(Path.Web.SHOPPINGCARTADD,   shoppingcartController.shoppingCart);
         get(Path.Web.SHOPPINGCART,   shoppingcartController.shoppingCart);
         post(Path.Web.USERS, UsersController.getAllUsers);
-        get(Path.Web.USER, UsersController.getOneUser);
+        get(Path.Web.USER, UserAlterController.alterpost);
+        get(Path.Web.ALTERUSER,       UserAlterController.alter);
+        //get(Path.Web.USER, UsersController.deleteUSer);
         post(Path.Web.DELETEUSER,   UserDeleteController.delete);
+        //post(Path.Web.ALTERUSER, UserAlterController.alterpost);
+
         get("*",                     ViewUtil.notFound);
 
         //Set up after-filters (called after each get/post)

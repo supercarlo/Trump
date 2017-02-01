@@ -5,14 +5,11 @@
 
     #foreach($user in $users)
         <div class="col">
-
             <a class="book" href="$WebPath.getUSERS()$user.getUsernamecustomer()">
             <p>$user.getUsernamecustomer()</p>
-
             </a>
         </div>
     #end
-
 </div>
 <form method="post" action="$WebPath.getADMINHOME()">
     <input type="submit" value="Home"></input>
