@@ -38,7 +38,7 @@ public class ORDER_HISTORY {
         ArrayList myList = new ArrayList();
         try {
             for (int i = 0; i < orderidlist.size(); i++) {
-                String query = ("SELECT * from orders_history2 where orderid = " + orderidlist.get(i));
+                String query = ("SELECT * from order_history2 where orderid = " + orderidlist.get(i));
                 ResultSet rs = stat.executeQuery(query);
                 ArrayList myList3 = new ArrayList();
                 while (rs.next()) {
