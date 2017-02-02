@@ -2,9 +2,10 @@ package app.tests;
 
 import app.product.ProductDao;
 import app.product.Products;
-import app.shoppingcart.shoppingcartDAO;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static app.shoppingcart.shoppingcartDAO.addProductToCart;
 
 /**
  * Created by Samuel on 02-02-17.
@@ -24,7 +25,7 @@ public class IntegrationTests {
     @Test
     public void shoppingCartTest() {
         String name5="onno";
-        String result3 = shoppingcartDAO.addProductToCart(name5);
+        String result3 = addProductToCart(name5);
         Assert.assertEquals(name5, result3);
 
     }
