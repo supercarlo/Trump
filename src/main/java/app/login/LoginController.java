@@ -1,6 +1,6 @@
 package app.login;
 
-import app.user.UserController;
+import app.users.UsersQueries;
 import app.util.Path;
 import app.util.ViewUtil;
 import spark.Request;
@@ -24,7 +24,29 @@ public class LoginController {
     public static Route handleLoginPost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
         User.userController(request,response);
-        UserController userController = new UserController();
+        UsersQueries usersQueries = new UsersQueries();
+        String username = request.queryParams("username");
+        String password = request.queryParams("password");
+        int level = usersQueries.login(username, password);
+
+
+        if (level == 2) {
+//            app.login.User login
+            request.session().attribute("currentUser", username);
+            model.put("authenticationSucceeded", true);
+            model.put("asUser", true);
+            model.put("username", username);
+            response.redirect(Path.Web.PRODUCTS);
+        } else if (level == 3) {
+//            Admin login
+            request.session().attribute("currentUser", username);
+            model.put("asAdmin", true);
+            model.put("authenticationSucceeded", true);
+            model.put("username", username);
+            response.redirect(Path.Web.ADMINHOME);
+        } else {
+            model.put("authenticationFailed", true);
+        }
         return ViewUtil.render(request, model, Path.Template.LOGIN);
     };
 

@@ -1,6 +1,9 @@
 #parse("/velocity/layout.vm")
 #@mainLayout()
-<h1>All products</h1>
+<center><h1>Products</h1></center>
+    <form id="loginForm" method="post">
+        <input type="text" name="category" placeholder="Categories" value="" id="category" required>
+    </form>
 <div class="row row-3">
     #foreach($product in $products)
         <div class="col">

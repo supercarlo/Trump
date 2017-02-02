@@ -1,11 +1,11 @@
-package app.user;
+package app.users;
 
 import app.DBC;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class UserController {
+public class UsersQueries {
     DBC dbc = new DBC();
     Statement stat = dbc.Connection();
 

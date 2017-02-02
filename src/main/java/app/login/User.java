@@ -1,7 +1,7 @@
 package app.login;
 
 import app.DBC;
-import app.user.UserController;
+import app.users.UsersQueries;
 import app.util.Path;
 import app.util.ViewUtil;
 import spark.Request;
@@ -183,11 +183,11 @@ public class User {
     }
 
     public static String userController(Request request, Response response) {
-        UserController userController = new UserController();
+        UsersQueries usersQueries = new UsersQueries();
         Map<String, Object> model = new HashMap<>();
         String username = request.queryParams("username");
         String password = request.queryParams("password");
-        int level = userController.login(username, password);
+        int level = usersQueries.login(username, password);
         request.session().attribute("currentUser", username);
 
         if (level == 2) {

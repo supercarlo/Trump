@@ -1,15 +1,18 @@
 package app.product;
 
-import app.DBC;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.*;
+        import app.DBC;
+        import spark.Request;
+
+        import java.sql.ResultSet;
+        import java.sql.Statement;
+        import java.util.*;
 
 public class ProductDao {
     DBC dbc = new DBC();
     Statement stat = dbc.Connection();
 
     public static List<Products> products = new ArrayList<>();
+    public static List<Products> filter = new ArrayList<>();
 
     public void addAllProducts() {
         try {
@@ -33,5 +36,11 @@ public class ProductDao {
 
     public Products getProductByID(String id) {
         return products.stream().filter(p -> p.getID().equals(id)).findFirst().orElse(null);
+    }
+
+    public Iterable<Products> filterProductsByCategory(Request request) {
+        String category = request.queryParams("category");
+        filter.add(products.stream().filter(p -> p.getCategory().equals(category)).findFirst().orElse(null));
+        return filter;
     }
 }

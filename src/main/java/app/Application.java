@@ -40,7 +40,7 @@ public class Application {
         // Configure Spark
         port(4567);
         staticFiles.location("/public");
-        staticFiles.expireTime(6000L);
+        staticFiles.expireTime(600L);
         enableDebugScreen();
 
         // Set up before-filters (called before each get/post)
@@ -67,17 +67,22 @@ public class Application {
 //        post(Path.Web.DELETE,        UserDeleteController.deletepost);
         get(Path.Web.PRODUCTS,       ProductController.getAllProducts);
         get(Path.Web.PRODUCT,        ProductController.getOneProduct);
+        get(Path.Web.PRODUCTSBYCATEGORY,       ProductController.getFilterdProducts);
         get(Path.Web.SHOPPINGCARTADD,   shoppingcartController.shoppingCart);
         get(Path.Web.SHOPPINGCART,   shoppingcartController.shoppingCart);
         get(Path.Web.FAVADD,   favController.fav);
         get(Path.Web.FAV,   favController.fav);
+        get(Path.Web.DELETEFROMCART, shoppingcartController.deleteFromShoppingCart);
         post(Path.Web.USERS, UsersController.getAllUsers);
         get(Path.Web.USER, UserAlterController.alterpost);
         get(Path.Web.ALTERUSER,       UserAlterController.alter);
         //get(Path.Web.USER, UsersController.deleteUSer);
-        post(Path.Web.DELETEUSER,   UserDeleteController.delete);
+//        post(Path.Web.DELETEUSER,   UserDeleteController.delete);
         //post(Path.Web.ALTERUSER, UserAlterController.alterpost);
 
+        get(Path.Web.USER, UsersController.getOneUser);
+//        post(Path.Web.DELETEUSER,   UserDeleteController.delete);
+        get(Path.Web.USER, UsersController.getOneUser);
         get("*",                     ViewUtil.notFound);
 
         //Set up after-filters (called after each get/post)
