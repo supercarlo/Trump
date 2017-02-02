@@ -22,7 +22,7 @@ public class IntegrationTests {
     }
 
     @Test
-    public static void shoppingCartTest() {
+    public void shoppingCartTest() {
         String name5="onno";
         String result3 = shoppingcartDAO.addProductToCart(name5);
         Assert.assertEquals(name5, result3);

@@ -1,22 +1,16 @@
 package app.shoppingcart;
 
 import app.DBC;
-import app.product.ProductDao;
 import app.product.Products;
-import spark.Request;
-
-import static app.Application.loginController;
-import static app.Application.ProductDao;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
+
+import static app.Application.ProductDao;
 
 public class shoppingcartDAO {
-    ArrayList<Products> shoppingcartproducts = new ArrayList<>();
+    static ArrayList<Products> shoppingcartproducts = new ArrayList<>();
     ArrayList<String> productidList = new ArrayList<>();
     ArrayList<String> usernameList = new ArrayList<>();
 
@@ -24,10 +18,11 @@ public class shoppingcartDAO {
         return shoppingcartproducts;
     }
 
-    public void addProductToCart(String id) {
+    public static String addProductToCart(String id) {
         if (id != null) {
             shoppingcartproducts.add(ProductDao.getProductByID(id));
         }
+        return id;
     }
 
     public int AddOrderJunction(String Username) {
