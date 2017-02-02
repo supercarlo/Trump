@@ -26,17 +26,17 @@ public class UserAlterController {
         return ViewUtil.render(request, model, Path.Template.INDEX);
     };
 
-    public static Route alterpost = (Request request, Response response) -> {
-        Map<String, Object> model = new HashMap<>();
-        request.attribute("alter", request.pathInfo());
-        String var = request.session().attribute("modify");
-        System.out.println(var);
-        model.put("users", selectUsers());
-        //deleteCustomer(var);
-        //deleteAdress(getQueryUsername(request));
-        //model.put("deletesucces", true);
-        return ViewUtil.render(request, model, Path.Template.ALTERUSER);
-    };
+//    public static Route alterpost = (Request request, Response response) -> {
+//        Map<String, Object> model = new HashMap<>();
+//        request.attribute("alter", request.pathInfo());
+//        String var = request.session().attribute("modify");
+//        System.out.println(var);
+//        model.put("users", selectUsers());
+//        //deleteCustomer(var);
+//        //deleteAdress(getQueryUsername(request));
+//        //model.put("deletesucces", true);
+//        return ViewUtil.render(request, model, Path.Template.ALTERUSER);
+//    };
 
     public static void deleteCustomer(String UsernameCustomer){
         DBC dbc = new DBC();

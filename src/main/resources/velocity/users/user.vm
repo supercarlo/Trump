@@ -12,16 +12,15 @@
 ##            <form method="post" action="$WebPath.getALTERUSER()$user.getUsernamecustomer()">
 ##                <input type="submit" value="Alter"></input>
 ##            </form>
-            <a href="$WebPath.getALTERUSER()$user.getUsernamecustomer()">Alter</a>
-##            <form method="post" action="$WebPath.getADMINHOME()">
-##                <input type="submit" value="Delete"></input>
-##            </form>
+##             <a href="$WebPath.getDELETEUSER()$user.getUsernamecustomer()">Alter this user!</a>
+            <form method="post" action="$WebPath.getADMINHOME()">
+                <input type="submit" value="Delete"></input>
+           </form>
 
-            ##<a href="$WebPath.getDELETEUSER()$Orders.getUsernamecustomer()">Delete this mofocke!</a>
-
+            ##<a href="$WebPath.getDELETEUSER()$user.getUsernamecustomer()">Delete this mofocke!</a>
         </div>
     </center>
     #else
-    <h1>user not found!</h1>
+    <h1>User not found!</h1>
     #end
 #end

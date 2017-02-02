@@ -43,7 +43,10 @@ public class UsersDAO {
         return users.stream().filter(u -> u.getUsernamecustomer().equals(usernamecustomer)).findFirst().orElse(null);
     }
 
-    public void deleteUser(String usernamecustomer) {
+    public void updateUser(String usernamecustomer) {
+    }
+
+    public void deleteUserqueries(String usernamecustomer) {
         DBC dbc = new DBC();
         Statement stat = dbc.Connection();
         try {

@@ -19,7 +19,7 @@
                     <div class="input-group">
 
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input  pattern=".{2,15}" required title="2 to 15 characters" name="firstname" placeholder= "$user.getFirstname()" type="text" id="firstname" tabindex="2">
+                        <input  pattern=".{2,15}" required title="2 to 15 characters" name="firstname" placeholder= "Firstname" value="$user.getFirstname()" type="text" id="firstname" tabindex="2">
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input pattern=".{2,15}" required title="2 to 15 characters"input name="lastname" placeholder="$user.getLastname()" class="form-control" type="text" id="lastname" tabindex="2"  >
+                        <input pattern=".{2,15}" required title="2 to 15 characters"input name="lastname" placeholder="Lastname" value="$user.getLastname()" class="form-control" type="text" id="lastname" tabindex="2"  >
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input pattern=".{5,10}" required title="5 to 10 characters" input name="username" placeholder="Username" class="form-control"  type="text" id="username">
+                        <input pattern=".{5,10}" required title="5 to 10 characters" input name="username" placeholder="Username" value="$user.getUsernamecustomer()" class="form-control"  type="text" id="username">
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
-                        <input pattern=".{5,10}" required title="5 to 10 characters" name="password" placeholder="Password" class="form-control"  type="password" id="password">
+                        <input pattern=".{5,10}" required title="5 to 10 characters" name="password" placeholder="Password" value="$user.getPasswordcustomer()" class="form-control"  type="password" id="password">
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input pattern=".{6,6}" required title="6 characters" name="postalcode" placeholder="Zip Code" class="form-control"  type="text" id="postalcode">
+                        <input pattern=".{6,6}" required title="6 characters" name="postalcode" placeholder="Zip Code" value="1234XX" class="form-control"  type="text" id="postalcode">
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input pattern=".{2,30}" required title="2 to 30 characters" name="street" placeholder="Street" class="form-control" type="text" id="street">
+                        <input pattern=".{2,30}" required title="2 to 30 characters" name="street" placeholder="Street" value="Sesamstraat" class="form-control" type="text" id="street">
 
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input pattern=".{1,6}" required title="1 to 6 characters" name="housenumber" placeholder="Housenumber" class="form-control" type="text" id="housenumber">
+                        <input pattern=".{1,6}" required title="1 to 6 characters" name="housenumber" placeholder="Housenumber" value="69" class="form-control" type="text" id="housenumber">
 
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input pattern=".{2,30}" required title="2 to 30 characters" name="city" placeholder="City" class="form-control"  type="text" id="city">
+                        <input pattern=".{2,30}" required title="2 to 30 characters" name="city" placeholder="City" value="Simcity" class="form-control"  type="text" id="city">
                     </div>
                 </div>
             </div>
@@ -230,58 +230,18 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
-                        <input pattern=".{16,16}" required title="16 characters" name="creditcardinfo" placeholder="Creditcard number" class="form-control" type="text" id="creditcardinfo">
+                        <input pattern=".{16,16}" required title="16 characters" name="creditcardinfo" placeholder="Creditcard number" value="$user.getCreditcardinfo()" class="form-control" type="text" id="creditcardinfo">
                     </div>
                 </div>
             </div>
-
-            <!-- radio checks -->
-            <div class="form-group">
-                <label class="col-md-4 control-label">Are you having a nice day?</label>
-                <div class="col-md-4">
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="hosting" value="yes" /> Yes
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="hosting" value="no" /> No
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="hosting" value="maybe" /> Maybe
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Text area -->
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Your chance to crack the code:</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                        <textarea class="form-control" name="comment" placeholder="Your Ubercode"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Success message -->
-            <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
 
             <!-- Button -->
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4">
-                    <form method="post" action="$WebPath.getREGISTER()">
+                    <form method="post" action="$WebPath.getALTERUSER()">
                         <input type="submit" name="register" value="submit">
                     </form>
-                ##                    <a href="$WebPath.getRegister()" type="submit" name="login-submit" id="login-submit" class="btn btn-warning" >Send </a>
-                ##                    <input type="submit" value="$msg.get("REGISTER_LABEL_FIRSTNAME")">
-
             #else
                 <p>User not found!</p>
             #end
@@ -298,6 +258,7 @@
 <script src="js/bootstrap.min.js"></script>
 
 <script src="js/jquery.min.js"></script>
+
 
 <script src="js/index.js"></script>
 
