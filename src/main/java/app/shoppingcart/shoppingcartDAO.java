@@ -21,4 +21,9 @@ public class shoppingcartDAO {
             shoppingcartproducts.add(ProductDao.getProductByID(id));
         }
     }
+
+    public Iterable<Products> deleteProductFromCart() {
+        shoppingcartproducts.clear();
+        return shoppingcartproducts;
+    }
 }

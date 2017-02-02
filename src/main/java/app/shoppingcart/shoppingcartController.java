@@ -26,9 +26,16 @@ public class shoppingcartController {
             model.put("products", shoppingcartDAO.getAllProductsInCart());
             return ViewUtil.render(request, model, Path.Template.SHOPPINGCART);
         }
-        if (clientAcceptsJson(request)) {
-            return dataToJson(ProductDao.getProductByID(getParamID(request)));
+        return ViewUtil.notAcceptable.handle(request, response);
+    };
+    public static Route deleteFromShoppingCart = (Request request, Response response) -> {
+        if (clientAcceptsHtml(request)) {
+            HashMap<String, Object> model = new HashMap<>();
+            shoppingcartDAO.deleteProductFromCart();
+            model.put("products", shoppingcartDAO.deleteProductFromCart());
+            return ViewUtil.render(request, model, Path.Template.SHOPPINGCART);
         }
         return ViewUtil.notAcceptable.handle(request, response);
     };
+
 }

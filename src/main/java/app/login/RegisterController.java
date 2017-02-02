@@ -21,8 +21,6 @@ public class RegisterController {
     };
 
 
-
-
     public static Route registerpost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
         UsersController usersController = new UsersController();
@@ -37,7 +35,7 @@ public class RegisterController {
         String birthDate = birthyear + "-"  + birthmonth + "-" + birthday;
 
         User customer = new User();
-        Boolean a = customer.createCustomer(username, password, "user", firstname, lastname, birthDate,  creditcardnumber, "2012-02-02" );
+        Boolean a = customer.createCustomer(username, password, "Orders", firstname, lastname, birthDate,  creditcardnumber, "2012-02-02" );
         System.out.println(a);
 
         return ViewUtil.render(request, model, Path.Template.LOGIN);
