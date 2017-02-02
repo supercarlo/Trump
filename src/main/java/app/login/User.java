@@ -1,11 +1,18 @@
 package app.login;
 
 import app.DBC;
+import app.user.UserController;
+import app.util.Path;
+import app.util.ViewUtil;
+import spark.Request;
+import spark.Response;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Samuel on 09-11-16.
@@ -95,6 +102,7 @@ public class User {
         return query;
     }
 
+
     // delete a adress from the DataBase
     public String deleteAdress(String UsernameCustomer){
         try {
@@ -164,35 +172,42 @@ public class User {
             System.out.println("brandBlusser");
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
-        }
-
-        finally {
-            if (stat != null) { stat.close(); }
+        } finally {
+            if (stat != null) {
+                stat.close();
+            }
         }
         {
             return listOfUsers;
         }
-
-//        public static ArrayList<String> selectUsers() throws SQLException {
-//            DBC dbc = new DBC();
-//            Statement stat = dbc.Connection();
-//            ArrayList<String> listOfUsers = null;
-//
-//            try {
-//                String query = ("select usernamecustomer from customer");
-//                stat.getConnection().commit();
-//                ResultSet rs = stat.executeQuery(query);
-//                listOfUsers = new ArrayList<String>();
-//                while (rs.next()) {
-//                    String username = rs.getString(1);
-//                    listOfUsers.add(username);
-//                }
-//            } catch (Exception e) {
-//                System.out.println("Error");
-//            }
-//            return listOfUsers;
-//        }
-
     }
 
+    public static String userController(Request request, Response response) {
+        UserController userController = new UserController();
+        Map<String, Object> model = new HashMap<>();
+        String username = request.queryParams("username");
+        String password = request.queryParams("password");
+        int level = userController.login(username, password);
+
+        if (level == 2) {
+//            app.login.User login
+            request.session().attribute("currentUser", username);
+            model.put("authenticationSucceeded", true);
+            model.put("asUser", true);
+            model.put("username", username);
+            response.redirect(Path.Web.PRODUCTS);
+        } else if (level == 3) {
+//            Admin login
+            request.session().attribute("currentUser", username);
+            model.put("asAdmin", true);
+            model.put("authenticationSucceeded", true);
+            model.put("username", username);
+            response.redirect(Path.Web.ADMINHOME);
+        } else {
+            model.put("authenticationFailed", true);
+        }
+        return ViewUtil.render(request, model, Path.Template.LOGIN);
+    }
 }
+
+
