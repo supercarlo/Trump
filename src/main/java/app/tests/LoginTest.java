@@ -31,7 +31,7 @@ public class LoginTest {
     }
 
     @Test
-    public static void loginPost() {
+    public void loginPost() {
 //        LoginController tester = new LoginController();
         Boolean name=true;
         Boolean name2=false;
