@@ -43,4 +43,5 @@ public class Path {
         public final static String SHOPPINGCART = "/velocity/products/shoppingcart.vm";
         public final static String ALTERUSER = "/velocity/users/alteruser.vm";
     }
+
 }
