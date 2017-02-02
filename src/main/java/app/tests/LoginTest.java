@@ -12,7 +12,7 @@ import org.junit.runners.MethodSorters;
 import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.JVM)
-public class UnitTests {
+public class LoginTest {
 
     //Testing the adress queries
     @Test
