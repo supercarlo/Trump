@@ -46,7 +46,7 @@ public class Fav {
         for (int i = 0; i < favoutiteslist.size(); i++) {
             ArrayList temp=  (ArrayList)favoutiteslist.get(i);
             TotalHTML += "<tr>\n" +
-                    "    <td>" + temp.get(1) +  "</td><td> <a href=\""+  FAV + "?iddelete=" + temp.get(0)  + "\"> <img src=\"https://www.bouwbakkie.nl/img/delete.png\" alt=\"HTML tutorial\" style=\"width:16px;height:16px;border:0;\"></a></td>"
+                    "    <td>" + temp.get(1) +  "</td><td> <a href=\""+  FAV + "?iddelete=" + temp.get(0)  + "\"> <img src=\"/img/delete.png\" alt=\"HTML tutorial\" style=\"width:16px;height:16px;border:0;\"></a></td>"
                     + "  </tr>";
         }
         TotalHTML += "</table><br><br><br>";

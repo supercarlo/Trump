@@ -11,7 +11,7 @@
             </div>
             <a href="$WebPath.getSHOPPINGCART()$product.getID()">Buy this product!</a>
             <a href="$WebPath.getFAV()?id=$product.getID()">
-                <img src="https://cdn1.iconfinder.com/data/icons/Futurosoft%20Icons%200.5.2/32x32/actions/bookmark_toolbar.png" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+                <img src="/img/fav.png" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
             </a>
             <a href="$WebPath.getSHOPPINGCARTADD()$product.getID()">Buy this product!</a>
         </div>
