@@ -43,7 +43,7 @@ public class LoginTest {
 //        Assert.assertEquals(name4, result3);
         ProductDao.products.add(new Products(name5, name3, name3, name3, name3, name3));
         Products result2 = ProductDao.getProductByID("1");
-        Assert.assertEquals(new Products(name5, name3, name3, name3, name3,name3), result2);
+        Assert.assertEquals(new Products(name5, name3, name3, name3, name3, name3), result2);
 //        Boolean result3 = tester.handleLoginPost(name);
 //        Assert.assertEquals(name, result3);
     }
