@@ -35,7 +35,7 @@ public class shoppingcartDAO {
         DBC databasePandaShop = new DBC();
         Statement stat = databasePandaShop.Connection();
         try {
-            String query = "select count(orderid) as neworderid from orders_history_customer_junctiontable; ";
+            String query = "select count(orderid) as neworderid from orders_history_customer_junctiontable2; ";
             ResultSet rs = stat.executeQuery(query);
 
             if (rs.next()) {
@@ -47,7 +47,7 @@ public class shoppingcartDAO {
         }
 
         try {
-            stat.executeUpdate ("INSERT INTO orders_history_customer_junctiontable (usernamecustomer, orderid)\n" + "VALUES ('" + Username + "'," + orderid + " );");
+            stat.executeUpdate ("INSERT INTO orders_history_customer_junctiontable2 (usernamecustomer, orderid)\n" + "VALUES ('" + Username + "'," + orderid + " );");
             stat.getConnection().commit();
             stat.close();
 
@@ -58,11 +58,24 @@ public class shoppingcartDAO {
         }
         return orderid;
     }
-    public void AddOrder(Integer orderid,String poduct_id, double price){
+    public void AddOrder(Integer orderid,String poduct_id, String price){
+        int rowid = 0;
         DBC databasePandaShop = new DBC();
         Statement stat = databasePandaShop.Connection();
         try {
-            stat.executeUpdate ("INSERT INTO orders_history (usernamecustomer, poduct_id, price, quantity)\n" + "VALUES ('" + orderid + "''" + poduct_id + "''" + price + "''" + 1 + "'); ");
+            String query = "select count(rowid) as newrowid from orders_history; ";
+            ResultSet rs = stat.executeQuery(query);
+
+            if (rs.next()) {
+                rowid = rs.getInt("newrowid") + 1; }
+            rs.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        int quantity = 1;
+        try {
+            stat.executeUpdate ("INSERT INTO orders_history (rowid, orderid, poduct_id, price, quantity)\n" + "VALUES ('" + rowid + "','" + orderid + "','" + poduct_id + "','" + price + "','" + quantity + "'); ");
             stat.getConnection().commit();
             stat.close();
 
@@ -91,13 +104,15 @@ public class shoppingcartDAO {
             Products temp = shoppingcartproducts.get(i);
             //for (int j = 0; j < shoppingcartproducts.size(); j++ ) {
                 //String temp = shoppingcartproducts.get(i);
-                String ID = temp.getID();
+
+//                Double price = (Dotemp.getPrice());
             System.out.println(username);
-                productidList.add(ID);
-            AddOrderJunction(username);
+                //productidList.add(ID);
+            int  orderid = AddOrderJunction(username);
+
 
             //}
-            System.out.println(temp.getID());
+            AddOrder(orderid, temp.getID(), temp.getPrice());
         }
 
     }
