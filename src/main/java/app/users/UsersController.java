@@ -42,7 +42,13 @@ public class UsersController {
 
         if (clientAcceptsHtml(request)) {
             HashMap<String, Object> model = new HashMap<>();
+
             UserDAO.deleteUser(getParamUsername(request));
+
+            model.put("user", UserDAO.getUsernameByParam(getParamUsername(request)));
+            model.put("user", UserDAO.getUsernameByParam(getParamUsername(request)));
+            //UserDAO.deleteUser(getParamUsername(request));
+
             return ViewUtil.render(request, model, Path.Template.USER);
         }
         if (clientAcceptsJson(request)) {

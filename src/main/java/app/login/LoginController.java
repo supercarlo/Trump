@@ -1,5 +1,6 @@
 package app.login;
 
+
 import app.util.Path;
 import app.util.ViewUtil;
 import spark.Request;
@@ -22,6 +23,7 @@ public class LoginController {
 
     public static Route handleLoginPost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
+
         LoginQueries loginQueries = new LoginQueries();
         String username = request.queryParams("username");
         String password = request.queryParams("password");
@@ -30,6 +32,13 @@ public class LoginController {
 
 
 
+
+
+        User.userController(request,response);
+        UsersQueries usersQueries = new UsersQueries();
+        String username = request.queryParams("username");
+        String password = request.queryParams("password");
+        int level = usersQueries.login(username, password);
 
 
 
@@ -53,10 +62,6 @@ public class LoginController {
         return ViewUtil.render(request, model, Path.Template.LOGIN);
     };
 
-//    public String getUserSession() {
-//        return
-//    };
-
     public static Route handleLogoutPost = (Request request, Response response) -> {
         request.session().removeAttribute("currentUser");
         request.session().attribute("loggedOut", true);
@@ -72,5 +77,6 @@ public class LoginController {
             response.redirect(Path.Web.LOGIN);
         }
     };
+
 
 }

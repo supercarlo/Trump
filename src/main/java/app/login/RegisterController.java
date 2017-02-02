@@ -20,6 +20,7 @@ public class RegisterController {
         return ViewUtil.render(request, model, Path.Template.REGISTER);
     };
 
+
     public static Route registerpost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
         UsersController usersController = new UsersController();
@@ -41,6 +42,7 @@ public class RegisterController {
 
     };
 
+    //test
     public Boolean multiplyString(boolean name){
         System.out.println("Multiplication result is " +name);
 

@@ -1,0 +1,36 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+    #if ( ! $username)
+        Please Log in to see your favourite list.
+
+    #else
+
+        #set( $list = $fav.GetFAV("'$username'"))
+
+    <p><B>Favourites of $username.</B></p>
+
+
+
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+       
+$fav.GenerateHTMLTable($list)
+
+        #end
+#end

@@ -1,5 +1,6 @@
 package app.product;
 
+import app.fav.Fav;
 import app.util.Path;
 import app.util.ViewUtil;
 import spark.Request;
@@ -37,6 +38,18 @@ public class ProductController {
         }
         if (clientAcceptsJson(request)) {
             return dataToJson(ProductDao.getProductByID(getParamID(request)));
+        }
+        return ViewUtil.notAcceptable.handle(request, response);
+    };
+
+    public static Route getFilterdProducts = (Request request, Response response) -> {
+        if (clientAcceptsHtml(request)) {
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("products", ProductDao.filterProductsByCategory(request));
+            return ViewUtil.render(request, model, Path.Template.PRODUCTS);
+        }
+        if (clientAcceptsJson(request)) {
+            return dataToJson(ProductDao.filterProductsByCategory(request));
         }
         return ViewUtil.notAcceptable.handle(request, response);
     };

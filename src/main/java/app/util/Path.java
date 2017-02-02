@@ -12,6 +12,7 @@ public class Path {
         @Getter public static final String LOGOUT = "/logout/";
         @Getter public static final String PRODUCTS = "/products/";
         @Getter public static final String PRODUCT = "/products/:ID/";
+        @Getter public static final String PRODUCTSBYCATEGORY = "/products/:category/";
         @Getter public static final String CUSTOMERHOME = "/customerhome/";
         @Getter public static final String ADMINHOME = "/adminhome/";
         @Getter public static final String GRAPHS = "/graphs/";
@@ -20,10 +21,17 @@ public class Path {
         @Getter public static final String USERS = "/users/";
         @Getter public static final String USER = "/users/:username/";
         @Getter public static final String DELETE = "/index/";
-        @Getter public static final String DELETEUSER= "/deleteuser/";
         @Getter public static final String SHOPPINGCART= "/shoppingcart/";
+        @Getter public static final String DELETEFROMCART = "/shoppingcart/";
         @Getter public static final String SHOPPINGCARTADD= "/shoppingcart/:ID/";
+
         @Getter public static final String ALTERUSER = "/users/:username/";
+
+        @Getter public static final String FAV= "/Fav/";
+        @Getter public static final String FAVADD= "/Fav/";
+        @Getter public static final String ALTERUSER = "/alteruser/";
+
+
     }
 
     public static class Template {
@@ -39,8 +47,8 @@ public class Path {
         public final static String REGISTER = "/velocity/index/register.vm";
         public final static String USERS = "/velocity/users/users.vm";
         public final static String USER = "/velocity/users/user.vm";
-        public final static String DELETEUSER ="/velocity/users/deleteuser.vm";
         public final static String SHOPPINGCART = "/velocity/products/shoppingcart.vm";
+        public final static String FAV = "/velocity/products/fav.vm";
         public final static String ALTERUSER = "/velocity/users/alteruser.vm";
     }
 

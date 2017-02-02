@@ -1,17 +1,26 @@
 package app.login;
 
 import app.DBC;
+import app.users.UsersQueries;
+import app.util.Path;
+import app.util.ViewUtil;
+import spark.Request;
+import spark.Response;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Samuel on 09-11-16.
  */
-public class User { // create a customer (with an andress) in DataBase
-    public boolean createCustomer(String UsernameCustomer, String PasswordCustomer, String Level, String firstname, String LastName, String BirthDate, String CreditCardInfo, String MemberSince) {
+
+// create a customer (with an andress) in DataBase
+public class User {
+    public static boolean createCustomer(String UsernameCustomer, String PasswordCustomer, String Level, String firstname, String LastName, String BirthDate, String CreditCardInfo, String MemberSince) {
         boolean usernameAvailibility = true;
         DBC databasePandaShop = new DBC();
         Statement stat = databasePandaShop.Connection();
@@ -46,6 +55,8 @@ public class User { // create a customer (with an andress) in DataBase
         return usernameAvailibility;
 
     }
+
+    //delete customer from database
     public String deleteCustomer(String UsernameCustomer){
         try {
             DBC databasePandaShop = new DBC();
@@ -60,6 +71,8 @@ public class User { // create a customer (with an andress) in DataBase
 
         return UsernameCustomer;
     }
+
+    // change a customer in DataBase
     public String alterCustomer(String columnName, String newData, String UsernameCustomer){
 
         try {
@@ -74,6 +87,8 @@ public class User { // create a customer (with an andress) in DataBase
         }
         return columnName;
     }
+
+    //delete customer from database
     public String createAdress(String UsernameCustomer, String city, String postalcode, String street, String househumber) {
 
             DBC databasePandaShop = new DBC();
@@ -87,6 +102,9 @@ public class User { // create a customer (with an andress) in DataBase
         }
         return query;
     }
+
+
+    // delete a adress from the DataBase
     public String deleteAdress(String UsernameCustomer){
         try {
             DBC databasePandaShop = new DBC();
@@ -102,6 +120,7 @@ public class User { // create a customer (with an andress) in DataBase
         return UsernameCustomer;
     }
 
+    // create a product (in the wishlist) in the DataBase
     public String addWishproduct(String productid, String wishlistid, String quantity){
 
         DBC databasePandaShop = new DBC();
@@ -117,6 +136,7 @@ public class User { // create a customer (with an andress) in DataBase
         return query;
     }
 
+    // change a adress in the DataBase
     public String alterAdress(String columnName, String newData, String UsernameCustomer){
 
         try {
@@ -131,6 +151,7 @@ public class User { // create a customer (with an andress) in DataBase
         }
         return columnName;
     }
+
     public static ArrayList<String> selectUsers(String valueName) throws SQLException {
         DBC dbc = new DBC();
         Statement stat = dbc.Connection();
@@ -149,38 +170,44 @@ public class User { // create a customer (with an andress) in DataBase
             //rs.close();
             //dbc.Connection().close();
         } catch (Exception e) {
-            System.out.println("brandBlusser");
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
-        }
-
-        finally {
-            if (stat != null) { stat.close(); }
+        } finally {
+            if (stat != null) {
+                stat.close();
+            }
         }
         {
             return listOfUsers;
         }
-
-//        public static ArrayList<String> selectUsers() throws SQLException {
-//            DBC dbc = new DBC();
-//            Statement stat = dbc.Connection();
-//            ArrayList<String> listOfUsers = null;
-//
-//            try {
-//                String query = ("select usernamecustomer from customer");
-//                stat.getConnection().commit();
-//                ResultSet rs = stat.executeQuery(query);
-//                listOfUsers = new ArrayList<String>();
-//                while (rs.next()) {
-//                    String username = rs.getString(1);
-//                    listOfUsers.add(username);
-//                }
-//            } catch (Exception e) {
-//                System.out.println("Error");
-//            }
-//            return listOfUsers;
-//        }
-
     }
 
+    public static String userController(Request request, Response response) {
+        UsersQueries usersQueries = new UsersQueries();
+        Map<String, Object> model = new HashMap<>();
+        String username = request.queryParams("username");
+        String password = request.queryParams("password");
+        int level = usersQueries.login(username, password);
+        request.session().attribute("currentUser", username);
+
+        if (level == 2) {
+//            User login
+            model.put("authenticationSucceeded", true);
+            model.put("asUser", true);
+            model.put("username", username);
+            response.redirect(Path.Web.PRODUCTS);
+        } else if (level == 3) {
+//            Admin login
+            model.put("asAdmin", true);
+            model.put("authenticationSucceeded", true);
+            model.put("username", username);
+            response.redirect(Path.Web.ADMINHOME);
+        } else {
+            // Login failed
+            model.put("authenticationFailed", true);
+        }
+        return ViewUtil.render(request, model, Path.Template.LOGIN);
+    }
 }
+
+

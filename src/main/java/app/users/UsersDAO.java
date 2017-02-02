@@ -5,9 +5,9 @@ import app.DBC;
 
 import javax.swing.*;
 import java.sql.ResultSet;
-        import java.sql.Statement;
-        import java.util.ArrayList;
-        import java.util.List;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by carlo on 30-01-17.
@@ -34,7 +34,6 @@ public class UsersDAO {
     }
 
     public Iterable<Users> getAllUsers() {
-        //System.out.println(users);
         users.clear();
         addAllUsers();
         return users;
