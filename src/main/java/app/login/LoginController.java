@@ -28,12 +28,6 @@ public class LoginController {
         String password = request.queryParams("password");
         int level = userController.login(username, password);
 
-
-
-
-
-
-
         if (level == 2) {
 //            app.login.User login
             request.session().attribute("currentUser", username);
@@ -54,10 +48,6 @@ public class LoginController {
         return ViewUtil.render(request, model, Path.Template.LOGIN);
     };
 
-//    public String getUserSession() {
-//        return
-//    };
-
     public static Route handleLogoutPost = (Request request, Response response) -> {
         request.session().removeAttribute("currentUser");
         request.session().attribute("loggedOut", true);
@@ -73,5 +63,6 @@ public class LoginController {
             response.redirect(Path.Web.LOGIN);
         }
     };
+
 
 }

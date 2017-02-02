@@ -14,6 +14,7 @@ import org.junit.runners.MethodSorters;
 @FixMethodOrder(MethodSorters.JVM)
 public class LoginTest {
 
+    //Testing the testing method
     @Test
     public void nameTester() {
         RegisterController tester = new RegisterController();
@@ -27,8 +28,9 @@ public class LoginTest {
         Assert.assertEquals(name, result3);
     }
 
+    //Testing the adress queries
     @Test
-    public void zcreateAdressTester() {
+    public void createAdressTester() {
         User tester = new User();
         String name="2";
         String name2="Toos";
@@ -43,7 +45,7 @@ public class LoginTest {
         Assert.assertEquals(name, result2);
     }
 
-
+    //Testing the user queries
     @Test
     public void createCustomerTester() {
         User tester = new User();
@@ -63,6 +65,7 @@ public class LoginTest {
 //        Assert.assertEquals(true, Remcodeletteveel);
   }
 
+    //Testing the wishlist queries
     @Test
     public void wishlistTester() {
         User tester = new User();

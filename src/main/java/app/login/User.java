@@ -10,7 +10,8 @@ import java.util.ArrayList;
 /**
  * Created by Samuel on 09-11-16.
  */
-public class User { // create a customer (with an andress) in DataBase
+// create a customer (with an andress) in DataBase
+public class User {
     public boolean createCustomer(String UsernameCustomer, String PasswordCustomer, String Level, String firstname, String LastName, String BirthDate, String CreditCardInfo, String MemberSince) {
         boolean usernameAvailibility = true;
         DBC databasePandaShop = new DBC();
@@ -46,6 +47,8 @@ public class User { // create a customer (with an andress) in DataBase
         return usernameAvailibility;
 
     }
+
+    //delete customer from database
     public String deleteCustomer(String UsernameCustomer){
         try {
             DBC databasePandaShop = new DBC();
@@ -60,6 +63,8 @@ public class User { // create a customer (with an andress) in DataBase
 
         return UsernameCustomer;
     }
+
+    // change a customer in DataBase
     public String alterCustomer(String columnName, String newData, String UsernameCustomer){
 
         try {
@@ -74,6 +79,8 @@ public class User { // create a customer (with an andress) in DataBase
         }
         return columnName;
     }
+
+    //delete customer from database
     public String createAdress(String UsernameCustomer, String city, String postalcode, String street, String househumber) {
 
             DBC databasePandaShop = new DBC();
@@ -87,6 +94,8 @@ public class User { // create a customer (with an andress) in DataBase
         }
         return query;
     }
+
+    // delete a adress from the DataBase
     public String deleteAdress(String UsernameCustomer){
         try {
             DBC databasePandaShop = new DBC();
@@ -102,6 +111,7 @@ public class User { // create a customer (with an andress) in DataBase
         return UsernameCustomer;
     }
 
+    // create a product (in the wishlist) in the DataBase
     public String addWishproduct(String productid, String wishlistid, String quantity){
 
         DBC databasePandaShop = new DBC();
@@ -117,6 +127,7 @@ public class User { // create a customer (with an andress) in DataBase
         return query;
     }
 
+    // change a adress in the DataBase
     public String alterAdress(String columnName, String newData, String UsernameCustomer){
 
         try {
@@ -131,6 +142,7 @@ public class User { // create a customer (with an andress) in DataBase
         }
         return columnName;
     }
+
     public static ArrayList<String> selectUsers(String valueName) throws SQLException {
         DBC dbc = new DBC();
         Statement stat = dbc.Connection();
