@@ -28,7 +28,4 @@ public class IntegrationTests {
         Assert.assertEquals(name5, result3);
 
     }
-
-
-
 }

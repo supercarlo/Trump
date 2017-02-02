@@ -60,4 +60,5 @@ public class UnitTests {
         String result = tester.addWishproduct(name3, name2, name3);
         assertEquals("insert into wishlistproducts(productid, wishlistid, quantity) values('"+name3+"', '"+name2+"', '"+name3+"');", result);
     }
+
 }
