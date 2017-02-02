@@ -38,4 +38,24 @@ public class shoppingcartController {
         return ViewUtil.notAcceptable.handle(request, response);
     };
 
+    public static Route purchasepost = (Request request, Response response) -> {
+//        System.out.println("joe");
+        Map<String, Object> model = new HashMap<>();
+        //System.out.println(shoppingcartDAO.purchaseProductByID());
+        String usernamecustomer = request.session().attribute("currentUser");
+
+        shoppingcartDAO.purchaseProductByID(usernamecustomer);
+        String productid = request.queryParams("productid");
+        String price = request.queryParams("price");
+
+//        String nameproduct = request.queryParams("password");
+//        String price = request.queryParams("birthyear");
+//        String categoryname = request.queryParams("birthmonth");
+//        System.out.println(productid);
+//        System.out.println(price);
+//        System.out.println(usernamecustomer);
+
+        return ViewUtil.render(request, model, Path.Template.INDEX);
+    };
+
 }

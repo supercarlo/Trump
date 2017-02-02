@@ -24,10 +24,10 @@ public class Path {
         @Getter public static final String SHOPPINGCART= "/shoppingcart/";
         @Getter public static final String DELETEFROMCART = "/shoppingcart/";
         @Getter public static final String SHOPPINGCARTADD= "/shoppingcart/:ID/";
-        @Getter public static final String FAV= "/Fav/";
-        @Getter public static final String FAVADD= "/Fav/";
+        @Getter public static final String FAV= "/fav/";
+        @Getter public static final String FAVADD= "/fav/:ID/";
         @Getter public static final String ALTERUSER = "/alteruser/";
-
+        @Getter public static final String PURCHASES = "/index/";
 
     }
 
@@ -48,5 +48,4 @@ public class Path {
         public final static String FAV = "/velocity/products/fav.vm";
         public final static String ALTERUSER = "/velocity/users/alteruser.vm";
     }
-
 }

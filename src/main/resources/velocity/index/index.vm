@@ -2,9 +2,9 @@
 
 
 #@mainLayout()
-    <p>Home HOME  home ǝɯoɥ</p>
+    <p>Homepage</p>
 <button type="button">Click Me!</button>
-<IMG src="/img/panda2.png" height="150" width="150" align="top">
+<IMG src="/img/panda2.png" height="550" width="550" align="bot">
 
 
 

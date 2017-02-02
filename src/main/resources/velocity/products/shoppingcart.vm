@@ -39,10 +39,23 @@
             </tr>
 
             <!-- checkout btn -->
-            <tr class="checkoutrow">
-                <td colspan="5" class="checkout"><button id="submitbtn">Checkout Now!</button></td>
-                <td><a href="$WebPath.getDELETEFROMCART()" onclick="" <span class=""><img src="/img/trash.png" alt="X"></span></td>
-            </tr>
+##            <tr class="checkoutrow">
+##                <td colspan="5" class="checkout"><button id="submitbtn">Checkout Now!</button></td>
+##                <form method="post" action="$WebPath.getSHOPPINGCART()">
+##                    <input type="submit" name="register" value="submit">
+##                </form>
+##                <td><a href="$WebPath.getDELETEFROMCART()" onclick="" <span class=""><img src="/img/trash.png" alt="X"></span></td>
+##            </tr>
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <form method="post" action="$WebPath.getPURCHASES()">
+                        <input type="submit" name="register" value="PURCHASE">
+                    </form>
+                ##                    <a href="$WebPath.getRegister()" type="submit" name="login-submit" id="login-submit" class="btn btn-warning" >Send </a>
+                ##                    <input type="submit" value="$msg.get("REGISTER_LABEL_FIRSTNAME")">
+                </div>
+            </div>
             </tbody>
         </table>
     </div>
