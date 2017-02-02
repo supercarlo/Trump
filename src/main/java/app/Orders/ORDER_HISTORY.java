@@ -38,14 +38,14 @@ public class ORDER_HISTORY {
         ArrayList myList = new ArrayList();
         try {
             for (int i = 0; i < orderidlist.size(); i++) {
-                String query = ("SELECT * from order_history2 where orderid = " + orderidlist.get(i));
+                String query = ("SELECT * from orders_history where orderid = " + orderidlist.get(i));
                 ResultSet rs = stat.executeQuery(query);
                 ArrayList myList3 = new ArrayList();
                 while (rs.next()) {
                     ArrayList myList2 = new ArrayList();
                     //myList2.add(Integer.toString(rs.getInt("orderid")));
                     myList2.add(Integer.toString(rs.getInt("poduct_id")));
-                    myList2.add(Double.toString(rs.getDouble("price")));
+                    myList2.add(rs.getString("price"));
                     myList2.add(Integer.toString(rs.getInt("quantity")));
                     myList3.add(myList2);
                 }
@@ -62,7 +62,7 @@ public class ORDER_HISTORY {
 
     public String GenerateHTMLTable(List orderidlist, List orderslist) {
         String TotalHTML = "";
-        String Header = "<table id=\"myTable\"> <tr> <th>Product Id</th> <th>Product Name</th> <th>Price</th> <th>Quantity</th> <th>Total Price</th> </tr>";
+        String Header = "<table id=\"myTable\"> <tr> <th>Product Id</th> <th>Product Name</th> <th>Price</th> <th>Quantity</th>  </tr>";
         for (int i = 0; i < orderidlist.size(); i++) {
 
             TotalHTML += "<b>ORDER: " + orderidlist.get(i) + "</b> <br>";
@@ -76,7 +76,7 @@ public class ORDER_HISTORY {
                         "    <td> " +GetProductName(Integer.valueOf((String)temp2.get(0))) + "</td>\n" +
                         "    <td>" + temp2.get(1) + "</td>\n" +
                         "    <td>" + temp2.get(2) + "</td>\n" +
-                        "    <td>" + (Double.valueOf((String) temp2.get(1)) * (Double.valueOf((String) temp2.get(2)))) + "</td>\n" +
+
                         "  </tr>";
             }
             TotalHTML += "</table><br><br><br>";
