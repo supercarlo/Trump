@@ -6,6 +6,8 @@ package app.tests;
 
 import app.login.RegisterController;
 import app.login.User;
+import app.product.ProductDao;
+import app.product.Products;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -34,9 +36,14 @@ public class LoginTest {
         Boolean name=true;
         Boolean name2=false;
         String name3="Pieter";
+        String name4="class app.product.ProductDao";
+        String name5="1";
         // assert statements
-//        Void result2 = LoginController.serveLoginPage();
-//        Assert.assertEquals(name3, result2);
+//        String result3 = String.valueOf(ProductDao.class);
+//        Assert.assertEquals(name4, result3);
+        ProductDao.products.add(new Products(name5, name3, name3, name3, name3, name3));
+        Products result2 = ProductDao.getProductByID("1");
+        Assert.assertEquals(new Products(name5, name3, name3, name3, name3,name3), result2);
 //        Boolean result3 = tester.handleLoginPost(name);
 //        Assert.assertEquals(name, result3);
     }
