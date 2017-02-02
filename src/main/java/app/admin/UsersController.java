@@ -27,7 +27,7 @@ public class UsersController {
 
     public static Route userspost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
-        model.put("user", selectUsers());
+        model.put("Orders", selectUsers());
         return ViewUtil.render(request, model, Path.Template.USERS);
     };
 

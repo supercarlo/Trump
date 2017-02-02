@@ -1,6 +1,6 @@
 package app.login;
 
-import app.users.UsersQueries;
+
 import app.util.Path;
 import app.util.ViewUtil;
 import spark.Request;
@@ -23,11 +23,23 @@ public class LoginController {
 
     public static Route handleLoginPost = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
+
+        LoginQueries loginQueries = new LoginQueries();
+        String username = request.queryParams("username");
+        String password = request.queryParams("password");
+        int level = loginQueries.login(username, password);
+
+
+
+
+
+
         User.userController(request,response);
         UsersQueries usersQueries = new UsersQueries();
         String username = request.queryParams("username");
         String password = request.queryParams("password");
         int level = usersQueries.login(username, password);
+
 
 
         if (level == 2) {
@@ -58,7 +70,7 @@ public class LoginController {
     };
 
     // The origin of the request (request.pathInfo()) is saved in the session so
-    // the user can be redirected back after login
+    // the Orders can be redirected back after login
     public static void ensureUserIsLoggedIn(Request request, Response response) {
         if (request.session().attribute("currentUser") == null) {
             request.session().attribute("loginRedirect", request.pathInfo());
