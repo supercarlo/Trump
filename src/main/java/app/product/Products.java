@@ -12,7 +12,6 @@ public class Products {
         this.price = price;
         this.category = category;
     }
-
     String ID;
     String info;
     String image;

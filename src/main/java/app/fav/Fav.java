@@ -20,6 +20,7 @@ public class Fav {
         Statement stat = databasePandaShop.Connection();
         List myList = new ArrayList();
         try {
+
             String query = ("SElect p.nameproduct,p.productid from product p, favourites2 f where f.customername = " + usernamecustomer + " and f.product_id = p.productid;");
             ResultSet rs = stat.executeQuery(query);
             while (rs.next()) {

@@ -12,6 +12,8 @@ public class RequestUtil {
 
     public static String getParamID(Request request) { return request.params("ID"); }
 
+    public static String getQueryCategory(Request request) { return request.queryParams("category"); }
+
     public static String getQueryUsername(Request request) {
         return request.queryParams("username");
     }

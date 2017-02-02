@@ -10,8 +10,8 @@ import static app.util.RequestUtil.*;
 public class ViewUtil {
 
     // Renders a template given a model and a request
-    // The request is needed to check the user session for language settings
-    // and to see if the user is logged in
+    // The request is needed to check the Orders session for language settings
+    // and to see if the Orders is logged in
     public static String render(Request request, Map<String, Object> model, String templatePath) {
         model.put("msg", new MessageBundle(getSessionLocale(request)));
         model.put("currentUser", getSessionCurrentUser(request));
