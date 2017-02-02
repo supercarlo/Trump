@@ -28,6 +28,19 @@ public class LoginTest {
         Assert.assertEquals(name, result3);
     }
 
+//    @Test
+//    public void loginPost() {
+////        LoginController tester = new LoginController();
+//        Boolean name=true;
+//        Boolean name2=false;
+//        String name3="Pieter";
+//        // assert statements
+////        Void result2 = LoginController.serveLoginPage();
+////        Assert.assertEquals(name3, result2);
+////        Boolean result3 = tester.handleLoginPost(name);
+////        Assert.assertEquals(name, result3);
+//    }
+
     //Testing the adress queries
     @Test
     public void createAdressTester() {
