@@ -41,11 +41,4 @@ public class RegisterController {
         return ViewUtil.render(request, model, Path.Template.LOGIN);
 
     };
-
-    //test
-    public Boolean multiplyString(boolean name){
-        System.out.println("Multiplication result is " +name);
-
-        return true;
-    }
 }

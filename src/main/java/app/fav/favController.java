@@ -27,6 +27,10 @@ public class favController {
             {
                 fav.AddFav(request.session().attribute("currentUser"), Integer.valueOf(request.queryParams("id")));
             }
+            if (request.queryParams("iddelete") != null && (request.session().attribute("currentUser") !=null ))
+            {
+                fav.DeleteFav(request.session().attribute("currentUser"), Integer.valueOf(request.queryParams("iddelete")));
+            }
            //model.put("url", request.url());
             model.put("fav", fav);
             model.put("request", request);
