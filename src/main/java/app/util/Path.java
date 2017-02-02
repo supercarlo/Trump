@@ -24,9 +24,6 @@ public class Path {
         @Getter public static final String SHOPPINGCART= "/shoppingcart/";
         @Getter public static final String DELETEFROMCART = "/shoppingcart/";
         @Getter public static final String SHOPPINGCARTADD= "/shoppingcart/:ID/";
-
-        @Getter public static final String ALTERUSER = "/users/:username/";
-
         @Getter public static final String FAV= "/Fav/";
         @Getter public static final String FAVADD= "/Fav/";
         @Getter public static final String ALTERUSER = "/alteruser/";
