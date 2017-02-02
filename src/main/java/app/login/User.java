@@ -17,9 +17,10 @@ import java.util.Map;
 /**
  * Created by Samuel on 09-11-16.
  */
+
 // create a customer (with an andress) in DataBase
 public class User {
-    public boolean createCustomer(String UsernameCustomer, String PasswordCustomer, String Level, String firstname, String LastName, String BirthDate, String CreditCardInfo, String MemberSince) {
+    public static boolean createCustomer(String UsernameCustomer, String PasswordCustomer, String Level, String firstname, String LastName, String BirthDate, String CreditCardInfo, String MemberSince) {
         boolean usernameAvailibility = true;
         DBC databasePandaShop = new DBC();
         Statement stat = databasePandaShop.Connection();
@@ -169,7 +170,6 @@ public class User {
             //rs.close();
             //dbc.Connection().close();
         } catch (Exception e) {
-            System.out.println("brandBlusser");
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         } finally {
@@ -188,22 +188,22 @@ public class User {
         String username = request.queryParams("username");
         String password = request.queryParams("password");
         int level = userController.login(username, password);
+        request.session().attribute("currentUser", username);
 
         if (level == 2) {
-//            app.login.User login
-            request.session().attribute("currentUser", username);
+//            User login
             model.put("authenticationSucceeded", true);
             model.put("asUser", true);
             model.put("username", username);
             response.redirect(Path.Web.PRODUCTS);
         } else if (level == 3) {
 //            Admin login
-            request.session().attribute("currentUser", username);
             model.put("asAdmin", true);
             model.put("authenticationSucceeded", true);
             model.put("username", username);
             response.redirect(Path.Web.ADMINHOME);
         } else {
+            // Login failed
             model.put("authenticationFailed", true);
         }
         return ViewUtil.render(request, model, Path.Template.LOGIN);
