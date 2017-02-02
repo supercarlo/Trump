@@ -23,7 +23,7 @@ public class Path {
         @Getter public static final String DELETEUSER= "/deleteuser/";
         @Getter public static final String SHOPPINGCART= "/shoppingcart/";
         @Getter public static final String SHOPPINGCARTADD= "/shoppingcart/:ID/";
-        @Getter public static final String ALTERUSER = "/alteruser/";
+        @Getter public static final String ALTERUSER = "/users/:username/";
     }
 
     public static class Template {

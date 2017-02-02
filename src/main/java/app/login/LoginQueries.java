@@ -1,11 +1,11 @@
-package app.user;
+package app.login;
 
 import app.DBC;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class UserController {
+public class LoginQueries {
     DBC dbc = new DBC();
     Statement stat = dbc.Connection();
 
@@ -59,18 +59,18 @@ public class UserController {
     }
 }
 
-    // Authenticate the user by hashing the inputted password using the stored salt,
+    // Authenticate the Orders by hashing the inputted password using the stored salt,
     // then comparing the generated hashed password to the stored hashed password
 //    public static boolean authenticate(String username, String password) {
 //        if (username.isEmpty() || password.isEmpty()) {
 //            return false;
 //        }
-//        app.login.User user = userDao.getUserByUsername(username);
-//        if (user == null) {
+//        app.login.User Orders = userDao.getUserByUsername(username);
+//        if (Orders == null) {
 //            return false;
 //        }
-//        String hashedPassword = BCrypt.hashpw(password, user.getSalt());
-//        return hashedPassword.equals(user.getHashedPassword());
+//        String hashedPassword = BCrypt.hashpw(password, Orders.getSalt());
+//        return hashedPassword.equals(Orders.getHashedPassword());
 //    }
 //
 //    // This method doesn't do anything, it's just included as an example
@@ -78,7 +78,7 @@ public class UserController {
 //        if (authenticate(username, oldPassword)) {
 //            String newSalt = BCrypt.gensalt();
 //            String newHashedPassword = BCrypt.hashpw(newSalt, newPassword);
-//            // Update the user salt and password
+//            // Update the Orders salt and password
 //        }
 //    }
 //}

@@ -3,21 +3,23 @@
 <body>
 <div class="container">
 
+
     <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+
         <fieldset>
 
             <!-- Form Name -->
             <legend>Only change the necessary boxes!</legend>
 
             <!-- Text input-->
-
+            #if($user)
             <div class="form-group">
                 <label class="col-md-4 control-label">First Name</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
 
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input  pattern=".{2,15}" required title="2 to 15 characters" name="firstname" placeholder="First Name" class="form-control" type="text" id="firstname" tabindex="2">
+                        <input  pattern=".{2,15}" required title="2 to 15 characters" name="firstname" placeholder= "$user.getFirstname()" type="text" id="firstname" tabindex="2">
                     </div>
                 </div>
             </div>
@@ -29,7 +31,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input pattern=".{2,15}" required title="2 to 15 characters"input name="lastname" placeholder="Last Name" class="form-control" type="text" id="lastname" tabindex="2"  >
+                        <input pattern=".{2,15}" required title="2 to 15 characters"input name="lastname" placeholder="$user.getLastname()" class="form-control" type="text" id="lastname" tabindex="2"  >
                     </div>
                 </div>
             </div>
@@ -279,6 +281,10 @@
                     </form>
                 ##                    <a href="$WebPath.getRegister()" type="submit" name="login-submit" id="login-submit" class="btn btn-warning" >Send </a>
                 ##                    <input type="submit" value="$msg.get("REGISTER_LABEL_FIRSTNAME")">
+
+            #else
+                <p>User not found!</p>
+            #end
                 </div>
             </div>
 
@@ -298,4 +304,5 @@
 </body>
 </html>
 #end
+
 
