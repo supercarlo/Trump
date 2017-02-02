@@ -11,8 +11,6 @@ import spark.Route;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.sun.xml.internal.ws.client.ContentNegotiation.none;
-
 /**
  * Created by wrket on 19-Jan-17.
  */
